@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Menu
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: -1367029950516001405, guid: 16de38fddf6af3e4f9129ae37bd72b47, type: 3}
+    - {fileID: 6214563159531112167, guid: 16de38fddf6af3e4f9129ae37bd72b47, type: 3}
+    - {fileID: 3753338493662126868, guid: 16de38fddf6af3e4f9129ae37bd72b47, type: 3}
+    - {fileID: 2800000, guid: 778d4c34d72db864785bffdb5ee043c3, type: 3}
+    - {fileID: 2800000, guid: fa57c71e52787d44784cc84e80306549, type: 3}
+    - {fileID: 2800000, guid: 12fa73b46c3772e48bc1047487e79cdf, type: 3}
+    totalSpriteSurfaceArea: 0
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 778d4c34d72db864785bffdb5ee043c3, type: 3}
+  - {fileID: 21300000, guid: 12fa73b46c3772e48bc1047487e79cdf, type: 3}
+  - {fileID: 3753338493662126868, guid: 16de38fddf6af3e4f9129ae37bd72b47, type: 3}
+  - {fileID: -1367029950516001405, guid: 16de38fddf6af3e4f9129ae37bd72b47, type: 3}
+  - {fileID: 6214563159531112167, guid: 16de38fddf6af3e4f9129ae37bd72b47, type: 3}
+  - {fileID: 21300000, guid: fa57c71e52787d44784cc84e80306549, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - "png-clipart-computer-icons-vkontakte-vk-angle-text \u043A\u043E\u043F\u0438\u044F"
+  - i 1
+  - "\u0421\u0442\u0440\u0435\u043B\u044F\u043A\u0430_8"
+  - "\u0421\u0442\u0440\u0435\u043B\u044F\u043A\u0430_5"
+  - "\u0421\u0442\u0440\u0435\u043B\u044F\u043A\u0430_6"
+  - "png-transparent-the-doc-project-death-cbc-radio-one-homo-sapiens-music-radio-electronics-meme-area
+    \u043A\u043E\u043F\u0438\u044F"
+  m_RenderDataMap: {}
+  m_Tag: Menu
+  m_IsVariant: 0

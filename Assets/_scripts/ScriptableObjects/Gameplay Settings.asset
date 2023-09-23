@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1856e35991efcf44fbddebbbe3081fc5, type: 3}
+  m_Name: Gameplay Settings
+  m_EditorClassIdentifier: 
+  playerMaxMoveSpeed: 8
+  speedBonus: 8
+  weaponSettings:
+    shootDistance: 32
+    weapons:
+    - name: Pistol
+      damage: 20
+      shootDelay: 0.2
+      maxAmmo: 10
+      reloadTime: 1
+      shootClip: {fileID: 8300000, guid: 80f375002c698434fbeb555e9146c4d7, type: 3}
+      reloadClip: {fileID: 8300000, guid: 336b27ea4039df541ab0d6595d4c3b45, type: 3}
+      weaponSprite: {fileID: 1098179606456428539, guid: 6322f34f966fccb4f826c5deedfda982,
+        type: 3}
+      bulletCost: 0
+      weaponLootSprite: {fileID: 0}
+      bulletLauncherPos: {x: 4.67, y: -0.12, z: 0}
+      projectile: {fileID: 0}
+      arrow: {fileID: 0}
+      ShotGunBullet: {fileID: 0}
+      point: {x: -24.52, y: 10.287, z: 0}
+    - name: Assault Rifle
+      damage: 20
+      shootDelay: 0.075
+      maxAmmo: 30
+      reloadTime: 1.5
+      shootClip: {fileID: 8300000, guid: 36ba0a1fe02765d4986feffee2f776ad, type: 3}
+      reloadClip: {fileID: 8300000, guid: e88a6481d832af24c995ae125a1ca318, type: 3}
+      weaponSprite: {fileID: -5557420877203330147, guid: 6322f34f966fccb4f826c5deedfda982,
+        type: 3}
+      bulletCost: 10
+      weaponLootSprite: {fileID: 698664279297640794, guid: 6322f34f966fccb4f826c5deedfda982,
+        type: 3}
+      bulletLauncherPos: {x: 5.42, y: -0.93, z: 0}
+      projectile: {fileID: 0}
+      arrow: {fileID: 0}
+      ShotGunBullet: {fileID: 0}
+      point: {x: -36.55851, y: 10.53163, z: 0}
+    - name: Grenade Launcher
+      damage: 60
+      shootDelay: 0.9
+      maxAmmo: 6
+      reloadTime: 2.5
+      shootClip: {fileID: 8300000, guid: 149ff5992aae30842b156248d82e4ee9, type: 3}
+      reloadClip: {fileID: 8300000, guid: e88a6481d832af24c995ae125a1ca318, type: 3}
+      weaponSprite: {fileID: -7888296697152109952, guid: 6322f34f966fccb4f826c5deedfda982,
+        type: 3}
+      bulletCost: 35
+      weaponLootSprite: {fileID: 2912464402848211330, guid: 6322f34f966fccb4f826c5deedfda982,
+        type: 3}
+      bulletLauncherPos: {x: 6, y: -0.93, z: 0}
+      projectile: {fileID: 5225310158830152627, guid: 33993283d7d1c3e40a75a58f5c3ce005,
+        type: 3}
+      arrow: {fileID: 0}
+      ShotGunBullet: {fileID: 9077342799359461021, guid: 1ee60123d25e560439d20cc4c99df236,
+        type: 3}
+      point: {x: -36.6213, y: 10.50457, z: 0}
+    - name: ShotGun
+      damage: 55
+      shootDelay: 0.6
+      maxAmmo: 7
+      reloadTime: 2.5
+      shootClip: {fileID: 8300000, guid: cd3f0a0a5c3da2540bbde39a41eb936f, type: 3}
+      reloadClip: {fileID: 8300000, guid: 16c4e3a3593304948bd31cadfbbbb3a4, type: 3}
+      weaponSprite: {fileID: 21300000, guid: 7fe81fe908e8b5f44be24f5119acfdbf, type: 3}
+      bulletCost: 20
+      weaponLootSprite: {fileID: 21300000, guid: 9de6b6a4b75e7424e8e277fb8fedb14f,
+        type: 3}
+      bulletLauncherPos: {x: 5.42, y: -0.93, z: 0}
+      projectile: {fileID: 0}
+      arrow: {fileID: 0}
+      ShotGunBullet: {fileID: 9151846511569435362, guid: 1ee60123d25e560439d20cc4c99df236,
+        type: 3}
+      point: {x: -36.22017, y: 10.06371, z: 0}
+    - name: Uzi
+      damage: 10
+      shootDelay: 0.6
+      maxAmmo: 45
+      reloadTime: 1.5
+      shootClip: {fileID: 8300000, guid: 88731c463a1367d449a625474234e312, type: 3}
+      reloadClip: {fileID: 8300000, guid: d6a58852f07e58c4da4f491afb30c47d, type: 3}
+      weaponSprite: {fileID: 197437386059793398, guid: 8a53ff76b10880c4787d22209d3830b2,
+        type: 3}
+      bulletCost: 25
+      weaponLootSprite: {fileID: 8672426274089661381, guid: 5162d2a4970be7449b6fc2caa555d7f4,
+        type: 3}
+      bulletLauncherPos: {x: 5.42, y: -0.93, z: 0}
+      projectile: {fileID: 0}
+      arrow: {fileID: 0}
+      ShotGunBullet: {fileID: 0}
+      point: {x: -36.22017, y: 10.06371, z: 0}
+    - name: CrossBow
+      damage: 35
+      shootDelay: 1.4
+      maxAmmo: 4
+      reloadTime: 1.7
+      shootClip: {fileID: 8300000, guid: 4b9409cdc19c7fd49898e830ffdbb94a, type: 3}
+      reloadClip: {fileID: 8300000, guid: e90a9a450d7716143a08ed00b7c82e34, type: 3}
+      weaponSprite: {fileID: 2594179332509777445, guid: 9815b6d8f3cb5a54b8bb5adbc39bcd02,
+        type: 3}
+      bulletCost: 30
+      weaponLootSprite: {fileID: 21300000, guid: b59fe2f13a558154186baa3019256603,
+        type: 3}
+      bulletLauncherPos: {x: 5.42, y: -0.93, z: 0}
+      projectile: {fileID: 0}
+      arrow: {fileID: 9151846511569435362, guid: 298b34d82ce3ff445a23f410c901570e,
+        type: 3}
+      ShotGunBullet: {fileID: 0}
+      point: {x: -36.22017, y: 10.06371, z: 0}
+    - name: Laser
+      damage: 7
+      shootDelay: 0.3
+      maxAmmo: 60
+      reloadTime: 0
+      shootClip: {fileID: 8300000, guid: b4c3895471bac9e478c080bd727375e4, type: 3}
+      reloadClip: {fileID: 0}
+      weaponSprite: {fileID: 21300000, guid: 94160257d0c8a804c862488d5e572b29, type: 3}
+      bulletCost: 60
+      weaponLootSprite: {fileID: 21300000, guid: ae60e311afc408142a7f4ef4d186fe97,
+        type: 3}
+      bulletLauncherPos: {x: 5.2, y: -0.7, z: 0}
+      projectile: {fileID: 0}
+      arrow: {fileID: 0}
+      ShotGunBullet: {fileID: 0}
+      point: {x: -36.22017, y: 10.06371, z: 0}
+  aISettings:
+    armorBreakFx: {fileID: 782821109702973013, guid: e0652cd9a17f318459058824c4c3c4e0,
+      type: 3}
+    enemyMoveSpeed: 5
+  unitsMask:
+    serializedVersion: 2
+    m_Bits: 512
+  zombie:
+    serializedVersion: 2
+    m_Bits: 1024
+  fly:
+    serializedVersion: 2
+    m_Bits: 32768

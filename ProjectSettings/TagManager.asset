@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Wall
+  - Enemy
+  - Goblin
+  - Door
+  - SpeedUp
+  - Jump
+  - Armor
+  - Medicine
+  - Aura
+  - Base
+  - as
+  - gran
+  - zombie
+  - shotGun
+  - money
+  - bunker
+  - uzi
+  - PlayerPoint
+  - Arrow
+  - Freeze
+  - laser
+  - crossbow
+  - fly
+  - airDrop
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Projectile
+  - Unit
+  - zombie
+  - Pl
+  - bunker
+  - Ignore
+  - playerMask
+  - fly
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 3651759919
+    locked: 0
+  - name: World
+    uniqueID: 2161872425
+    locked: 0
+  - name: WorldProps
+    uniqueID: 4130274383
+    locked: 0
+  - name: Characters
+    uniqueID: 2161927293
+    locked: 0
+  - name: Effects
+    uniqueID: 4009115435
+    locked: 0
+  - name: Overlay
+    uniqueID: 2962906977
+    locked: 0

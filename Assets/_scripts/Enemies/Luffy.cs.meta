@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 369584745d9363146b1276e7dc4c7782
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hudPrefab: {instanceID: 0}
+  - gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
+  - player: {instanceID: 0}
+  - handWithGun: {instanceID: 0}
+  - bulletPrefab: {instanceID: 0}
+  - bulletLauncher: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
