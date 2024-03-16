@@ -6,14 +6,14 @@ using DG.Tweening;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private int gunIndex;
-
+    private MainUiController uiManager;
     [SerializeField] private Transform gunTransform;
     [SerializeField] AnimationCurve animCurve;
 
     [SerializeField] private GameplaySettings gameplaySettings;
     void Start()
     {
-
+        uiManager = FindObjectOfType<MainUiController>();
         transform.DOMoveY(-0.9f, 1f).SetEase(Ease.InOutSine).SetLoops(13, LoopType.Yoyo);
         StartCoroutine(GunAnim());
         GetComponent<SpriteRenderer>().sprite = gameplaySettings.weaponSettings.weapons[gunIndex].weaponLootSprite;
@@ -45,7 +45,7 @@ public class Gun : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponentInChildren<GunController>().ChangeGun(gunIndex);
-            
+            uiManager.ChangeWeaponIcon(gunIndex);
             Destroy(gameObject);
         }
     }

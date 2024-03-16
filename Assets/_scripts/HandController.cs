@@ -6,7 +6,7 @@ public class HandController : MonoBehaviour
 {
     [SerializeField] float targetScale = 0.07f;
     [SerializeField] float targetPositionX = -0.05f;
-    public Joystick joystick;
+
     [SerializeField] bool limit;
     [SerializeField] float maxAngle, minAngle;
     // Start is called before the first frame update
@@ -20,12 +20,10 @@ public class HandController : MonoBehaviour
         // Чтобы спраит с рукой следовал за курсором
     {
         //var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        var angle = Mathf.Atan2(joystick.Vertical, joystick.Horizontal) * Mathf.Rad2Deg;
-        
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
 
-        
-        // проверяется курсор по x перемещается к одной из сторон, если да , то рука меняет свое расположение по y
-        if (joystick.Horizontal > 0)
+        if (mousePos.x > transform.position.x)
         {
             transform.localScale = new Vector3(targetScale, targetScale, targetScale);
             transform.localPosition = new Vector3(targetPositionX, transform.localPosition.y, 0);
@@ -35,7 +33,7 @@ public class HandController : MonoBehaviour
             }
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        else if (joystick.Horizontal < 0)
+        else if (mousePos.x < transform.position.x)
         {
             transform.localScale = new Vector3(targetScale, -targetScale, targetScale);
             transform.localPosition = new Vector3(-targetPositionX, transform.localPosition.y, 0);
@@ -46,5 +44,7 @@ public class HandController : MonoBehaviour
             }
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
     }
 }
+

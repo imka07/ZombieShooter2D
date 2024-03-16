@@ -5,7 +5,6 @@ using MilkShake;
 
 public class GunController : MonoBehaviour
 {
-    Shaker myShake;
     [SerializeField] ShakePreset shakePresetPistol;
     [SerializeField] GameObject bulletLauncher;
     [SerializeField] GameObject tracerPrefab;
@@ -23,7 +22,6 @@ public class GunController : MonoBehaviour
     [SerializeField] AudioSource gunReload;
     public Transform barrel;
     public Rigidbody2D bullet;
-    private float bulletSpeed;
     public event System.Action OnAmmoChange;
     public float rotateUp;
     public float rotateDown;
@@ -35,27 +33,21 @@ public class GunController : MonoBehaviour
     [SerializeField] private GameplaySettings gameplaySettings;
 
     private bool canShoot = true;
-    public Joystick joystick;
+
     public int currentGunIndex { get; private set; } = 999;
 
 
     void Start()
     {
-
-        bulletSpeed = 2100f;
-        myShake = Camera.main.GetComponent<Shaker>();
         gunShoot = GetComponent<AudioSource>();
-
         OnAmmoChange?.Invoke();
-
         ChangeGun(0);
     }
 
     void Update()
     {
-        
-        
-        if ((Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal)) > 0.2f && canShoot)
+
+        if ((Input.GetMouseButtonDown(0) && canShoot))
         {
             if (currentAmmo > 0)
             {
@@ -89,7 +81,7 @@ public class GunController : MonoBehaviour
             {
                 if (TimeShot <= 0)
                 {
-                    if ((Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal)) > 0.2f)
+                    if (Input.GetMouseButton(0))
                     {
                         UziShoot();
                         TimeShot = startTimeShoot;
@@ -118,7 +110,7 @@ public class GunController : MonoBehaviour
             {
                 if (TimeShotofLaser <= 0)
                 {
-                    if ((Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal)) > 0.2f)
+                    if (Input.GetMouseButton(0))
                     {
                         LaserShoot();
                         TimeShotofLaser = startTimeShootOfLaser;
@@ -372,7 +364,7 @@ public class GunController : MonoBehaviour
 
     private IEnumerator ReloadGunCoroutine()
     {
-        if (currentAmmo < maxAmmo && (currentGunIndex == 0 || genAmmo > 0))
+        if (currentAmmo < maxAmmo && (currentGunIndex >= 0 || genAmmo > 0))
         {
 
             canShoot = false;
@@ -380,8 +372,8 @@ public class GunController : MonoBehaviour
             gunReload.Play();
             yield return new WaitForSeconds(gameplaySettings.weaponSettings.weapons[currentGunIndex].reloadTime);
             var bulletsToAdd = Mathf.Min(maxAmmo - currentAmmo, genAmmo);
-            currentAmmo = currentGunIndex == 0 ? maxAmmo : currentAmmo + bulletsToAdd;
-            genAmmo -= currentGunIndex == 0 ? 0 : bulletsToAdd;
+            currentAmmo = currentGunIndex >= 0 ? maxAmmo : currentAmmo + bulletsToAdd;
+            genAmmo -= currentGunIndex >= 0 ? 0 : bulletsToAdd;
             canShoot = true;
             reloadCoroutine = null;
             OnAmmoChange?.Invoke();
@@ -425,24 +417,20 @@ public class GunController : MonoBehaviour
         if (currentAmmo <= 0)
         {
 
-            if (currentGunIndex == 0)
+            if (currentGunIndex >= 0)
             {
-
                 ReloadGun();
             }
             else
             {
                 if (genAmmo > 0)
                 {
-
                     ReloadGun();
                 }
-                else
-                {
-                    FindObjectOfType<Test>().Deffault();
-
-                    ChangeGun(0);
-                }
+                //else
+                //{
+                //    ChangeGun(0);
+                //}
 
             }
 

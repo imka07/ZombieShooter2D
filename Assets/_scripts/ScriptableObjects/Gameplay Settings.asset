@@ -70,7 +70,7 @@ MonoBehaviour:
         type: 3}
       point: {x: -36.6213, y: 10.50457, z: 0}
     - name: ShotGun
-      damage: 55
+      damage: 30
       shootDelay: 0.6
       maxAmmo: 7
       reloadTime: 2.5

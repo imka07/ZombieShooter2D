@@ -4,19 +4,5 @@ using UnityEngine;
 
 public class AD : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        ShowAd();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void ShowAd()
-    {
-        Application.ExternalCall("ShowAd");
-    }
+   
 }

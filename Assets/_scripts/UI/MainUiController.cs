@@ -20,6 +20,9 @@ public class MainUiController : MonoBehaviour
     [SerializeField] Image hpFillBase;
     Coroutine speedUpCoroutine, jumpCoroutine, armorCoroutine, medicineCourine, droncoroutine;
 
+    public Image weaponIcon;
+    public Sprite[] weaponSprites;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -35,10 +38,19 @@ public class MainUiController : MonoBehaviour
         DronFill.fillAmount = 1;
     }
 
-    void Update()
+    public void ChangeWeaponIcon(int weaponIndex)
     {
-        
+        if (weaponIndex >= 0 && weaponIndex < weaponSprites.Length)
+        {
+            weaponIcon.sprite = weaponSprites[weaponIndex];
+        }
+        else
+        {
+            Debug.LogWarning("Weapon index out of range!");
+        }
     }
+
+
     public void StartArmor()
     {
         if (armorCoroutine != null) StopCoroutine(armorCoroutine);
@@ -171,7 +183,7 @@ public class MainUiController : MonoBehaviour
     private void OnAmmoChange()
     {
         ammoCounter.text = gunController.currentAmmo.ToString();
-        genAmmoCounter.text = gunController.currentGunIndex == 0 ? "∞" : gunController.genAmmo.ToString();
+        genAmmoCounter.text = gunController.currentGunIndex >= 0 ? "∞" : gunController.genAmmo.ToString();
     }
   
 }

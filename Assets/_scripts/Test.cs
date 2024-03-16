@@ -17,13 +17,11 @@ public class Test : MonoBehaviour
     private bool lockControls = false;
     public bool speedUp, buffJump, armor, med, dron = false;
     private Animator ch_animator;
-    public GameObject[] iconWeapon;
     private float health;
     public float maxHealth = 100;
     public Text moneyText;
     [SerializeField] private AudioSource moneyTake;
     public  float cash;
-    public Joystick joystick;
     public delegate void OnHpChangeHandler(float maxHp, float currentHp);
     public OnHpChangeHandler OnHpChange;
     public GameObject darkness;
@@ -32,7 +30,7 @@ public class Test : MonoBehaviour
     private SpriteRenderer[] ch_sprites;
     public static int DarkNumber;
     public int genAmmo { get; private set; } = 0;
-    private Vector3 moveVector { get => 100 * transform.right * joystick.Horizontal; }
+    private Vector3 moveVector;
     [SerializeField] private GameObject tnt;
     [SerializeField] private GameObject tntSpawn;
     public int tntCount;
@@ -41,13 +39,9 @@ public class Test : MonoBehaviour
     public AudioSource lootSound;
     public GameObject Spawnvariant;
     [SerializeField] private GameplaySettings gameplaySettings;
-    private float cnt;
     public float timeBtSpawn;
     public GameObject Dron;
     public GameObject dronSpawn;
-    private float StartInterval;
-    private int _frameRate;
-    // Start is called before the first frame update
     void Start()
     {
         if(cash < 0)
@@ -57,10 +51,8 @@ public class Test : MonoBehaviour
         cash = 250f;
         force = 25f;
         cash = PlayerPrefs.GetFloat("cash");
-        StartInterval = 1.4f;
         tntCount = 0;
         diePannel.SetActive(false);
-        Deffault();
         MUC = FindObjectOfType<MainUiController>();
         rb = GetComponent<Rigidbody2D>();
         ch_animator = GetComponent<Animator>();
@@ -72,22 +64,9 @@ public class Test : MonoBehaviour
 
     public void ArmorSetActive(bool active)
     {
-       
+
         aura.SetActive(active);
     }
-    //public void Reward()
-    //{
-     
-      
-        
-    //        Time.timeScale = 1;
-    //        Heal(100);
-    //        cash = 100;
-    //        diePannel.SetActive(false);
-        
-     
-    //}
-   
   
     public void MedButtonSetActive(bool active)
     {
@@ -95,19 +74,9 @@ public class Test : MonoBehaviour
     }
    
     
-    public void Deffault()
-    {
-        iconWeapon[4].SetActive(false);
-        iconWeapon[0].SetActive(true);
-        iconWeapon[1].SetActive(false);
-        iconWeapon[2].SetActive(false);
-        iconWeapon[3].SetActive(false);
-        iconWeapon[5].SetActive(false);
-        iconWeapon[6].SetActive(false);
-    }
     public void OffDarkness()
     {
-       
+
         if(DarkNumber == 1)
         {
             darkness.SetActive(true);
@@ -150,7 +119,6 @@ public class Test : MonoBehaviour
 
         if (cash >= 50 && med == false)
         {
-
             med = true;
             Heal(50);
             MUC.StartMed();
@@ -254,11 +222,20 @@ public class Test : MonoBehaviour
         //2. Присваевает скорость, потом идет ограничивание тела в скорости, но скорость не меняется,будет только быстрее доходит до пределов , заданных с помощью Math.Clamp
         // Проверяется , если это не стена , то выполняем обычное передвижение, а если на стене , то идет заторможение по y
 
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // Вычисляем направление движения
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * gameplaySettings.playerMaxMoveSpeed * Time.deltaTime;
+
+        // Применяем движение к игроку
+        transform.Translate(movement);
+
         OffDarkness();
         if (!lockControls)
         {
             //Проверяем черз if нажата ли кнопка пробел и персонаж на земле, потом задаем направление и умножаюм на силу прыжка
-            if (isGrounded && joystick.Vertical > 0.3f)
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 if (!buffJump)
                 {
@@ -286,9 +263,9 @@ public class Test : MonoBehaviour
                 }
             }
 
-            ch_animator.SetFloat("Speed", joystick.Horizontal == 0 ? 0 : 1);
+            ch_animator.SetFloat("Speed", Input.GetAxisRaw("Horizontal") == 0 ? 0 : 1);
 
-            if (joystick.Horizontal == 0)
+            if (Input.GetAxisRaw("Horizontal") == 0)
             {
                 ch_animator.SetFloat("Speed", 0);
             }
@@ -346,66 +323,7 @@ public class Test : MonoBehaviour
             //lootAir.SetActive(false);
         }
     }
-    public void uzi()
-    {
-        iconWeapon[0].SetActive(false);
-        iconWeapon[1].SetActive(false);
-        iconWeapon[2].SetActive(false);
-        iconWeapon[3].SetActive(false);
-        iconWeapon[4].SetActive(true);
-        iconWeapon[5].SetActive(false);
-        iconWeapon[6].SetActive(false);
-    }
-    public void Crossbow()
-    {
-        iconWeapon[0].SetActive(false);
-        iconWeapon[1].SetActive(false);
-        iconWeapon[2].SetActive(false);
-        iconWeapon[3].SetActive(false);
-        iconWeapon[4].SetActive(false);
-        iconWeapon[5].SetActive(false);
-        iconWeapon[6].SetActive(true);
-    }
-    public void ass()
-    {
-        iconWeapon[0].SetActive(false);
-        iconWeapon[1].SetActive(true);
-        iconWeapon[2].SetActive(false);
-        iconWeapon[4].SetActive(false);
-        iconWeapon[3].SetActive(false);
-        iconWeapon[5].SetActive(false);
-        iconWeapon[6].SetActive(false);
-    }
-    public void gran()
-    {
-        iconWeapon[0].SetActive(false);
-        iconWeapon[1].SetActive(false);
-        iconWeapon[2].SetActive(true);
-        iconWeapon[3].SetActive(false);
-        iconWeapon[4].SetActive(false);
-        iconWeapon[5].SetActive(false);
-        iconWeapon[6].SetActive(false);
-    }
-    public void ShotGun()
-    {
-        iconWeapon[0].SetActive(false);
-        iconWeapon[1].SetActive(false);
-        iconWeapon[2].SetActive(false);
-        iconWeapon[3].SetActive(true);
-        iconWeapon[4].SetActive(false);
-        iconWeapon[5].SetActive(false);
-        iconWeapon[6].SetActive(false);
-    }
-    public void laser()
-    {
-        iconWeapon[0].SetActive(false);
-        iconWeapon[1].SetActive(false);
-        iconWeapon[2].SetActive(false);
-        iconWeapon[3].SetActive(false);
-        iconWeapon[4].SetActive(false);
-        iconWeapon[5].SetActive(true);
-        iconWeapon[6].SetActive(false);
-    }
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "SpeedUp")
@@ -443,34 +361,7 @@ public class Test : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (collision.tag == "as")
-        {
-            ass();
-        }
-        if (collision.tag == "shotGun")
-        {
-            ShotGun();
-        }
-        if (collision.tag == "uzi")
-        {
-            uzi();
-        }
-        if (collision.tag == "laser")
-        {
-            laser();
-        }
-        if (collision.tag == "crossbow")
-        {
-            Crossbow();
-        }
-        if (collision.tag == "gran")
-        {
-            gran();
-        }
-
-
-
-
+      
     }
 
     private void OnTriggerStay2D(Collider2D collision)

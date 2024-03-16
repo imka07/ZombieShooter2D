@@ -48,12 +48,12 @@ public class ShopManager : MonoBehaviour
     }
     private void TextWork()
     {
-        FridgeText.text = fridgeCount.ToString();
-        fridgeCount = fridge.freezeCount;
-        AcidText.text = AcidRainCount.ToString();
-        AcidRainCount = acidRain.AcidRainCount;
-        TntText.text = tntCount.ToString();
-        tntCount = test.tntCount;
+        //FridgeText.text = fridgeCount.ToString();
+        //fridgeCount = fridge.freezeCount;
+        //AcidText.text = AcidRainCount.ToString();
+        //AcidRainCount = acidRain.AcidRainCount;
+        //TntText.text = tntCount.ToString();
+        //tntCount = test.tntCount;
         moneyText.text = money.ToString();
         money = test.cash;
     }
@@ -126,7 +126,6 @@ public class ShopManager : MonoBehaviour
          
             Click.Play();
             gunController.ChangeGun(1);
-            test.ass();
             test.cash -= 50;
         }
         else 
@@ -141,7 +140,6 @@ public class ShopManager : MonoBehaviour
          
             Click.Play();
             gunController.ChangeGun(3);
-            test.ShotGun();
             test.cash -= 70;
         }
         else 
@@ -155,8 +153,6 @@ public class ShopManager : MonoBehaviour
         {
       
             Click.Play();
-            gunController.ChangeGun(2);
-            test.gran();
             test.cash -= 100;
         }
         else 
@@ -171,7 +167,6 @@ public class ShopManager : MonoBehaviour
        
             Click.Play();
             gunController.ChangeGun(5);
-            test.Crossbow();
             test.cash -= 50;
         }
         else 
@@ -186,7 +181,6 @@ public class ShopManager : MonoBehaviour
         
             Click.Play();
             gunController.ChangeGun(4);
-            test.uzi();
             test.cash -= 65;
         }
         else 
@@ -201,7 +195,6 @@ public class ShopManager : MonoBehaviour
           
             Click.Play();
             gunController.ChangeGun(6);
-            test.laser();
             test.cash -= 85;
         }
         else 

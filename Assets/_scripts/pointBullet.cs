@@ -4,19 +4,10 @@ using UnityEngine;
 
 public class pointBullet : MonoBehaviour
 {
-  
-    private float damage;
-    private Rigidbody2D rb;
+    [SerializeField] private GameplaySettings gameplaySettings;
     private Vector3 moveVector;
-    private float speed;
-    void Start()
-    {
-        speed = 75f;
-        rb = GetComponent<Rigidbody2D>();
-        damage = 25f;
-    }
+    [SerializeField] private float speed;
 
-    // Update is called once per frame
     void Update()
     {
         moveVector = transform.right * speed * Time.deltaTime;
@@ -35,17 +26,17 @@ public class pointBullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<EnemyBasic>().TakeDamage(damage);
+            collision.GetComponent<EnemyBasic>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
             Destroy(gameObject);
         }
         if (collision.tag == "zombie")
         {
-            collision.GetComponent<ZombieAI>().TakeDamage(damage);
+            collision.GetComponent<ZombieAI>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
             Destroy(gameObject);
         }
         if (collision.tag == "fly")
         {
-            collision.GetComponent<fly>().TakeDamage(damage);
+            collision.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
 
         }
     }
