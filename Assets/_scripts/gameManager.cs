@@ -8,17 +8,23 @@ public class gameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     public AudioSource musicThem;
     public AudioSource click;
-    private Test player;
+
     private void Start()
     {
-        player = FindObjectOfType<Test>();
         pausePanel.SetActive(false);
     }
-    public void OpenPause()
+    void OpenPause()
     {
-        click.Play();
-        Time.timeScale = 0;
-        pausePanel.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            click.Play();
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
+    }
+    private void Update()
+    {
+        OpenPause();
     }
     public void Click()
     {

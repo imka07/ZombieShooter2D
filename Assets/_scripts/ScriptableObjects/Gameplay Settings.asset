@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1856e35991efcf44fbddebbbe3081fc5, type: 3}
   m_Name: Gameplay Settings
   m_EditorClassIdentifier: 
-  playerMaxMoveSpeed: 8
+  playerMaxMoveSpeed: 10
   speedBonus: 8
   weaponSettings:
     shootDistance: 32

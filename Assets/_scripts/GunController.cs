@@ -5,7 +5,7 @@ using MilkShake;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] ShakePreset shakePresetPistol;
+
     [SerializeField] GameObject bulletLauncher;
     [SerializeField] GameObject tracerPrefab;
     [SerializeField] GameObject LasertracerPrefab;
@@ -25,6 +25,7 @@ public class GunController : MonoBehaviour
     public event System.Action OnAmmoChange;
     public float rotateUp;
     public float rotateDown;
+    MainUiController mainUiController;
    
     public int genAmmo { get; private set; } = 0;
     public int maxAmmo { get; private set; }
@@ -39,6 +40,7 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
+        mainUiController = FindObjectOfType<MainUiController>();
         gunShoot = GetComponent<AudioSource>();
         OnAmmoChange?.Invoke();
         ChangeGun(0);
@@ -99,6 +101,10 @@ public class GunController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeGun(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeGun(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeGun(3);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeGun(4);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeGun(2);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeGun(6);
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
     }
 
@@ -384,6 +390,7 @@ public class GunController : MonoBehaviour
     {
         if (gunIndex != currentGunIndex)
         {
+            mainUiController.ChangeWeaponIcon(gunIndex);
             gunRenderer.sprite = gameplaySettings.weaponSettings.weapons[gunIndex].weaponSprite;
             bulletLauncher.transform.localPosition = gameplaySettings.weaponSettings.weapons[gunIndex].bulletLauncherPos;
             currentGunIndex = gunIndex;
