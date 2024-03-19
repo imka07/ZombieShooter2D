@@ -11,33 +11,35 @@ public class pointBullet : MonoBehaviour
     void Update()
     {
         moveVector = transform.right * speed * Time.deltaTime;
-
-        var angleZ = transform.eulerAngles.z;
-
-        angleZ = Mathf.Lerp(angleZ, angleZ > 0 ? 180 : -180, Time.deltaTime);
-
-        //transform.eulerAngles = new Vector3(0, 0, angleZ);
         transform.position += moveVector;
 
-        Destroy(this.gameObject, 3f);
+        Destroy(gameObject, 3f);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
-        {
-            collision.GetComponent<EnemyBasic>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
-            Destroy(gameObject);
-        }
-        if (collision.tag == "zombie")
-        {
-            collision.GetComponent<ZombieAI>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
-            Destroy(gameObject);
-        }
-        if (collision.tag == "fly")
-        {
-            collision.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
 
+        if (!collision.CompareTag("Bullet"))
+        {
+            switch (collision.transform.tag)
+            {
+                case "Enemy":
+                    collision.GetComponent<EnemyBasic>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
+                    Destroy(gameObject);
+                    break;
+                case "zombie":
+                    collision.GetComponent<ZombieAI>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
+                    Destroy(gameObject);
+                    break;
+                case "fly":
+                    collision.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
+                    Destroy(gameObject);
+                    break;
+                default:
+                    Destroy(gameObject);
+                    break;
+            }
         }
     }
+
 }

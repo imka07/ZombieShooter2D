@@ -29,6 +29,7 @@ TagManager:
   - crossbow
   - fly
   - airDrop
+  - Bullet
   layers:
   - Default
   - TransparentFX

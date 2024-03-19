@@ -82,17 +82,19 @@ public class ProjectileController : MonoBehaviour
             forZombie();
             Destroy(gameObject);
         }
-        if (collision.tag == "fly")
+        else if (collision.tag == "fly")
         {
             if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
             forFly();
             Destroy(gameObject);
         }
-        if(collision.tag == "Ground")
+        else if(collision.tag == "Ground")
         {
             if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
     
 
