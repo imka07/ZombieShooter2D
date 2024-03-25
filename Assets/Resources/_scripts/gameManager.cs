@@ -15,11 +15,13 @@ public class gameManager : MonoBehaviour
     }
     void OpenPause()
     {
+        var player = FindObjectOfType<GunController>();
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             click.Play();
             Time.timeScale = 0;
             pausePanel.SetActive(true);
+            player.CanShoot(false);
         }
     }
     private void Update()
@@ -32,9 +34,11 @@ public class gameManager : MonoBehaviour
     }
     public void ContinueGame()
     {
+        var player = FindObjectOfType<GunController>();
         click.Play();
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+        player.CanShoot(true);
     }
     public void ToMenu()
     {

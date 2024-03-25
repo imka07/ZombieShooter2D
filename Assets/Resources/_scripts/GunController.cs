@@ -132,6 +132,11 @@ public class GunController : MonoBehaviour
         }
     }
 
+    public void CanShoot(bool active)
+    {
+        canShoot = active;
+    }
+
     private void Shoot()
     {
         CinemachineShaker.Instance.Shaker(1, 0.2f);
