@@ -6,208 +6,120 @@ using DG.Tweening;
 
 public class ZombieAI : MonoBehaviour
 {
-    private Sequence sequence;
+    [Header("Zombie Stats")]
     public float speed;
     [SerializeField] private float collisionDamage;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
-    private SpriteRenderer[] ch_sprites;
-    [SerializeField] private AudioSource acidDrop;
-    [SerializeField] GameObject hudPrefab;
-    [SerializeField] Vector3 offset;
-    private ZombieHud hudController;
-    public GameObject[] stuffs;
-    public GameObject moneyPointOfSpawn;
-    private float timeBTattack;
-    public float startBTattack;
-    public ParticleSystem diePart;
-    [SerializeField] private Animator anim;
-    public AudioSource hit;
-    public Transform attackPos;
+    private float timeBetweenAttack;
+    public float startBetweenAttack;
     public float attackRange;
     [SerializeField] private float damage;
-    public LayerMask pl;
+    public float distanse;
+    bool isWalking;
+    bool canAttack;
+
+    [Header("Zombie Components")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] GameObject hudPrefab;
+    private Rigidbody2D rb;
+    [SerializeField] Vector3 offset;
+    private ZombieHud hudController;
+    public ParticleSystem deathParticles;
+    public Transform attackPos;
+    private SpriteRenderer sprite;
+    public AudioClip[] audioClips;
+    [SerializeField] private Animator anim;
+    private Transform player;
     public LayerMask playerMask;
-    public Transform bunker;
-    [SerializeField] private AudioSource baseHit;
+    public LayerMask bunker;
+
+
+
     public delegate void OnHealthChangeHandler(float maxHP, float currentHP);
     public OnHealthChangeHandler OnHealthChange;
-    [SerializeField] private GameplaySettings gameplaySettings;
-    private SpriteRenderer sprite;
-    [SerializeField] private AudioSource zombieRoar;
-    public float distanse;
-    public bool isBig;
-    public bool isdropZombie;
-    public bool is2WaveZombie;
-    public bool isZombieSpear;
-    public GameObject secondZombie;
-    public GameObject acid;
-    private Transform player;
    
-    void Start()
+    public void Init()
     {
-       
+        isWalking = true;
         player = GameObject.FindGameObjectWithTag("PlayerPoint").transform;
-       anim.SetBool("isWalking", true);
-        zombieRoar.Play();
+        rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
         hudController = Instantiate(hudPrefab, transform).GetComponent<ZombieHud>();
         hudController.transform.localPosition = offset;
         health = maxHealth;
-        ch_sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    { 
-        Ai();
-    }
-    private void Ai()
+    public void MoveToBunker()
     {
-        anim.SetBool("walk", true);
-        if (!isZombieSpear)
+        if (isWalking)
         {
-            if (transform.position.x < distanse)
-            {
-                transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
-            }
-            else
-            {
-                Attack();
-                    anim.SetBool("isWalking", false);
-                if(isdropZombie)
-                {
-                    anim.SetBool("walk", false);
-                    DropZombieAttack();
-                }
-
-
-            }
+            anim.SetBool("isWalking", true);
+            Vector2 movement = new Vector2(-speed * Time.deltaTime, 0f); // Создаем вектор для перемещения
+            rb.MovePosition(rb.position + movement); // Перемещаем объект с использованием Rigidbody
         }
-        else
-            ChasePlayer();
     }
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            hit.Play();
+            PlayClips(0);
             collision.gameObject.GetComponent<Test>().TakeDamage(collisionDamage);
         }
+        else if (collision.tag == "bunker")
+        {
+            canAttack = true;
+            isWalking = false;
+        }
+    }
+
+    public void PlayClips(int index)
+    {
+        audioSource.clip = audioClips[index];
+        audioSource.Play();
     }
     
-    private void Attack()
+    public void Attack()
     {
-        OnAttack();
+        if (canAttack) OnAttack();
     }
-    
-    private void ChasePlayer()
-    {
-        if (transform.position.x < player.position.x - 2)
-        {
-            transform.localScale = new Vector2(1, 1);
-            transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
-        }
-        else if (transform.position.x > player.position.x + 1)
-        {
-            transform.localScale = new Vector2(-1, 1);
-            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
-        }
-        
-    }
+
     private void OnAttack()
     {
-        if(timeBTattack <= 0)
+        if(timeBetweenAttack <= 0)
         {
-            baseHit.Play();
+            PlayClips(1);
             anim.SetTrigger("attack");
-            Collider2D[] player = Physics2D.OverlapCircleAll(attackPos.position, attackRange, pl);
+            Collider2D[] player = Physics2D.OverlapCircleAll(attackPos.position, attackRange, bunker);
             for (int i = 0; i < player.Length; i++)
             {
                 player[i].GetComponent<Base>().TakeDamage(damage);
             }
-            timeBTattack = startBTattack;
+            timeBetweenAttack = startBetweenAttack;
         }
         else
         {
-            timeBTattack -= Time.deltaTime;
+            timeBetweenAttack -= Time.deltaTime;
         }
         
     }
    
     
-    private void ZombieSpearAttack()
-    {
-        if (timeBTattack <= 0)
-        {
-            hit.Play();
-            anim.SetTrigger("attack");
-            Collider2D[] player = Physics2D.OverlapCircleAll(attackPos.position, attackRange, playerMask);
-            for (int i = 0; i < player.Length; i++)
-            {
-                player[i].GetComponent<Test>().TakeDamage(damage);
-            }
-            timeBTattack = startBTattack;
-        }
-        else
-        {
-            timeBTattack -= Time.deltaTime;
-        }
-    }
-    public void DropZombieAttack()
-    {
-        if(timeBTattack <= 0)
-        {
-            acidDrop.Play();
-            Instantiate(acid, attackPos.position, Quaternion.identity);
-            anim.SetBool("attack", true);
-            timeBTattack = startBTattack;
-        }
-        
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Freeze")
-        {
-            anim.SetFloat("Speed", 1);
-            speed = 1.9f;
-        }
-    }
-    
-    
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && isZombieSpear)
-        {
-            ZombieSpearAttack();
-        }
-    }
     public void TakeDamage(float damage)
     {
         health = Mathf.Max(health - damage, 0);
         OnHealthChange?.Invoke(maxHealth, health);
-      
-        if (health == 0)
+        if (health <= 0)
         {
-            PlayerPrefs.SetFloat("kills", killsCounter.instanse.killsCount);
-            killsCounter.instanse.killsCount++;
-            killsCounter.instanse.KillUpdate();
             Death();
         }
     }
     private void Death()
     {
-        if (is2WaveZombie)
-        {
-            Instantiate(secondZombie, transform.position, Quaternion.identity);
-        }
-
-        var rand = Random.Range(0, stuffs.Length);
-         Instantiate(stuffs[rand], moneyPointOfSpawn.transform.position, Quaternion.identity);
-         Instantiate(diePart, transform.position, Quaternion.identity);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
-   
+
 }

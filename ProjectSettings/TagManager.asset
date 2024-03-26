@@ -30,6 +30,7 @@ TagManager:
   - fly
   - airDrop
   - Bullet
+  - MapEnd
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class pointBullet : MonoBehaviour
@@ -7,6 +8,7 @@ public class pointBullet : MonoBehaviour
     [SerializeField] private GameplaySettings gameplaySettings;
     private Vector3 moveVector;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject destroyEffect;
 
     void Update()
     {
@@ -16,6 +18,13 @@ public class pointBullet : MonoBehaviour
         Destroy(gameObject, 3f);
 
     }
+
+    private void DestroyBullet()
+    {
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -25,20 +34,19 @@ public class pointBullet : MonoBehaviour
             {
                 case "Enemy":
                     collision.GetComponent<EnemyBasic>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
-                    Destroy(gameObject);
+                    DestroyBullet();
                     break;
                 case "zombie":
                     collision.GetComponent<ZombieAI>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
-                    Destroy(gameObject);
+                    DestroyBullet();
                     break;
                 case "fly":
                     collision.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
-                    Destroy(gameObject);
-                    break;
-                default:
-                    Destroy(gameObject);
+                    DestroyBullet();
                     break;
             }
+
+            if (!collision.CompareTag("MapEnd")) DestroyBullet();
         }
     }
 

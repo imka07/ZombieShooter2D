@@ -90,8 +90,6 @@ public class EnemyBasic : MonoBehaviour
         if (health == 0)
         {
             PlayerPrefs.SetFloat("kills", killsCounter.instanse.killsCount);
-            killsCounter.instanse.killsCount++;
-            killsCounter.instanse.KillUpdate();
             Death();
         }
     }

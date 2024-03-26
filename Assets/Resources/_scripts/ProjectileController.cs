@@ -76,7 +76,7 @@ public class ProjectileController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageAllUnitsInRadius(radius);
-        if(collision.tag == "zombie")
+        if (collision.tag == "zombie")
         {
             if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
             forZombie();
@@ -88,13 +88,16 @@ public class ProjectileController : MonoBehaviour
             forFly();
             Destroy(gameObject);
         }
-        else if(collision.tag == "Ground")
+        else if (collision.tag == "Ground")
         {
             if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        else if (collision.tag != "MapEnd")
+        {
+            if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
     
 
