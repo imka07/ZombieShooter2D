@@ -27,7 +27,6 @@ public class ZombieAI : MonoBehaviour
     private ZombieHud hudController;
     public ParticleSystem deathParticles;
     public Transform attackPos;
-    private SpriteRenderer sprite;
     public AudioClip[] audioClips;
     [SerializeField] private Animator anim;
     private Transform player;
@@ -44,7 +43,6 @@ public class ZombieAI : MonoBehaviour
         isWalking = true;
         player = GameObject.FindGameObjectWithTag("PlayerPoint").transform;
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
         hudController = Instantiate(hudPrefab, transform).GetComponent<ZombieHud>();
         hudController.transform.localPosition = offset;
