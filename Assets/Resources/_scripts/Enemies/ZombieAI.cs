@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class ZombieAI : MonoBehaviour
 {
@@ -37,7 +38,9 @@ public class ZombieAI : MonoBehaviour
 
     public delegate void OnHealthChangeHandler(float maxHP, float currentHP);
     public OnHealthChangeHandler OnHealthChange;
-   
+
+    public static event UnityAction OnDestroyed;
+
     public void Init()
     {
         isWalking = true;

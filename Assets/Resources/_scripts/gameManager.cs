@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,21 @@ public class gameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     public AudioSource musicThem;
     public AudioSource click;
+    public static gameManager instance;
+
+    public int currentWave;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
