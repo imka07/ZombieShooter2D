@@ -44,9 +44,15 @@ public class pointBullet : MonoBehaviour
                     collision.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
                     DestroyBullet();
                     break;
+                case "MapEnd":
+                    break;
+                case "bunker":
+                    break;
+                default:
+                    DestroyBullet();
+                    break;
             }
 
-            if (!collision.CompareTag("MapEnd")) DestroyBullet();
         }
     }
 

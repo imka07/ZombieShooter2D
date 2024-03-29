@@ -548,7 +548,6 @@ GameObject:
   - component: {fileID: 109992549}
   - component: {fileID: 109992548}
   - component: {fileID: 109992547}
-  - component: {fileID: 109992550}
   m_Layer: 5
   m_Name: play
   m_TagString: Untagged
@@ -670,19 +669,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109992545}
   m_CullTransparentMesh: 0
---- !u!114 &109992550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109992545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5802bbae85d68462aac0904e1bd1d78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleMultiplier: 0.8
 --- !u!1 &118590567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1647,6 @@ GameObject:
   - component: {fileID: 830090474}
   - component: {fileID: 830090473}
   - component: {fileID: 830090472}
-  - component: {fileID: 830090471}
   m_Layer: 5
   m_Name: Upgrades
   m_TagString: Untagged
@@ -1689,19 +1674,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1746, y: 457}
   m_SizeDelta: {x: 566, y: 182}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &830090471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830090469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5802bbae85d68462aac0904e1bd1d78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleMultiplier: 0.8
 --- !u!114 &830090472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,7 +1768,6 @@ GameObject:
   - component: {fileID: 855336372}
   - component: {fileID: 855336371}
   - component: {fileID: 855336370}
-  - component: {fileID: 855336369}
   m_Layer: 5
   m_Name: Controlls
   m_TagString: Untagged
@@ -1824,19 +1795,6 @@ RectTransform:
   m_AnchoredPosition: {x: -57, y: -196}
   m_SizeDelta: {x: 566, y: 182}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &855336369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855336367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5802bbae85d68462aac0904e1bd1d78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleMultiplier: 0.8
 --- !u!114 &855336370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,7 +1889,6 @@ GameObject:
   - component: {fileID: 889623748}
   - component: {fileID: 889623747}
   - component: {fileID: 889623746}
-  - component: {fileID: 889623745}
   m_Layer: 5
   m_Name: GunShop
   m_TagString: Untagged
@@ -1959,19 +1916,6 @@ RectTransform:
   m_AnchoredPosition: {x: 215, y: -229}
   m_SizeDelta: {x: 566, y: 182}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &889623745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889623743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5802bbae85d68462aac0904e1bd1d78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleMultiplier: 0.8
 --- !u!114 &889623746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3441,7 +3385,6 @@ GameObject:
   - component: {fileID: 1771733298}
   - component: {fileID: 1771733297}
   - component: {fileID: 1771733296}
-  - component: {fileID: 1771733295}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -3469,19 +3412,6 @@ RectTransform:
   m_AnchoredPosition: {x: -57, y: -49}
   m_SizeDelta: {x: 566, y: 182}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &1771733295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771733293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5802bbae85d68462aac0904e1bd1d78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleMultiplier: 0.8
 --- !u!114 &1771733296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3863,7 +3793,6 @@ GameObject:
   - component: {fileID: 2117543426}
   - component: {fileID: 2117543425}
   - component: {fileID: 2117543424}
-  - component: {fileID: 2117543423}
   m_Layer: 5
   m_Name: Achvments
   m_TagString: Untagged
@@ -3891,19 +3820,6 @@ RectTransform:
   m_AnchoredPosition: {x: 618, y: 457}
   m_SizeDelta: {x: 566, y: 182}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &2117543423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117543421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5802bbae85d68462aac0904e1bd1d78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleMultiplier: 0.8
 --- !u!114 &2117543424
 MonoBehaviour:
   m_ObjectHideFlags: 0

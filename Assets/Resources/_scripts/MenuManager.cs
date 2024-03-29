@@ -20,23 +20,23 @@ public class MenuManager : MonoBehaviour
     {
         
     }
-    public void OffNight()
-    {
+    //public void OffNight()
+    //{
 
       
-        click.Play();
-        Test.DarkNumber = 2;
-        PlayerPrefs.SetInt("darkness", Test.DarkNumber);
-    }
+    //    click.Play();
+    //    Test.DarkNumber = 2;
+    //    PlayerPrefs.SetInt("darkness", Test.DarkNumber);
+    //}
 
-    public void OnNight()
-    {
+    //public void OnNight()
+    //{
        
       
-        click.Play();
-        Test.DarkNumber = 1;
-        PlayerPrefs.SetInt("darkness", Test.DarkNumber);
-    }
+    //    click.Play();
+    //    Test.DarkNumber = 1;
+    //    PlayerPrefs.SetInt("darkness", Test.DarkNumber);
+    //}
     public void OpenSettings()
     {
         radio.SetActive(false);

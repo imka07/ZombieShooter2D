@@ -30,7 +30,6 @@ public class ZombieAI : MonoBehaviour
     public Transform attackPos;
     public AudioClip[] audioClips;
     [SerializeField] private Animator anim;
-    private Transform player;
     public LayerMask playerMask;
     public LayerMask bunker;
 
@@ -44,7 +43,6 @@ public class ZombieAI : MonoBehaviour
     public void Init()
     {
         isWalking = true;
-        player = GameObject.FindGameObjectWithTag("PlayerPoint").transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         hudController = Instantiate(hudPrefab, transform).GetComponent<ZombieHud>();

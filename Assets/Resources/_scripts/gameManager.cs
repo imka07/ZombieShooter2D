@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using DG.Tweening.Core.Easing;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject pausePanel, lostPanel;
     public AudioSource musicThem;
     public AudioSource click;
     public static gameManager instance;
@@ -29,6 +30,7 @@ public class gameManager : MonoBehaviour
     {
         pausePanel.SetActive(false);
     }
+
     void OpenPause()
     {
         var player = FindObjectOfType<GunController>();
@@ -40,6 +42,12 @@ public class gameManager : MonoBehaviour
             player.CanShoot(false);
         }
     }
+
+    public void LoseController(bool active)
+    {
+        lostPanel.SetActive(active);
+    }
+
     private void Update()
     {
         OpenPause();
@@ -70,5 +78,6 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
+
 
 }

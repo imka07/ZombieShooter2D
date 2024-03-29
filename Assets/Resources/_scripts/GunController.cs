@@ -76,7 +76,7 @@ public class GunController : MonoBehaviour
             }
 
         }
-        LaserSetting();
+       
         if (currentAmmo > 0)
         {
             if (currentGunIndex == 4)
@@ -321,6 +321,8 @@ public class GunController : MonoBehaviour
                 case "fly":
                     hit.transform.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[currentGunIndex].damage);
                     break;
+                case "bunker":
+                    break;
                 default:
                     Instantiate(ricohetPrefab, hit.point, Quaternion.identity);
                     break;
@@ -332,7 +334,7 @@ public class GunController : MonoBehaviour
     {
         if (currentGunIndex != 6)
         {
-            if (hit)
+            if (hit && hit.transform.tag != "bunker")
             {
                 var line = Instantiate(tracerPrefab).GetComponent<LineRenderer>();
                 line.SetPosition(0, bulletLauncher.transform.position);
@@ -415,11 +417,11 @@ public class GunController : MonoBehaviour
     public void BuyBullet(int gunIndex)
     {
         var test = FindObjectOfType<Test>();
-        if (test.cash >= gameplaySettings.weaponSettings.weapons[gunIndex].bulletCost)
-        {
-            genAmmo += gameplaySettings.weaponSettings.weapons[gunIndex].maxAmmo;
-            test.cash -= gameplaySettings.weaponSettings.weapons[gunIndex].bulletCost;
-        }
+        //if (test.cash >= gameplaySettings.weaponSettings.weapons[gunIndex].bulletCost)
+        //{
+        //    genAmmo += gameplaySettings.weaponSettings.weapons[gunIndex].maxAmmo;
+        //    test.cash -= gameplaySettings.weaponSettings.weapons[gunIndex].bulletCost;
+        //}
       
     }
     

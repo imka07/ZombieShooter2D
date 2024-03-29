@@ -76,31 +76,33 @@ public class ProjectileController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageAllUnitsInRadius(radius);
-        if (collision.tag == "zombie")
+        switch (collision.transform.tag)
         {
-            if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            forZombie();
-            Destroy(gameObject);
+            case "zombie":
+                if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                forZombie();
+                Destroy(gameObject);
+                break;
+            case "fly":
+                if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                forFly();
+                Destroy(gameObject);
+                break;
+            case "Ground":
+                if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                break;
+            case "bunker":
+                break;
+            case "MapEnd":
+                break;
+            default:
+                if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                break;
+
         }
-        else if (collision.tag == "fly")
-        {
-            if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            forFly();
-            Destroy(gameObject);
-        }
-        else if (collision.tag == "Ground")
-        {
-            if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        else if (collision.tag != "MapEnd")
-        {
-            if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+
     }
-    
-
-  
-
+   
 }
