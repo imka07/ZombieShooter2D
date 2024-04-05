@@ -9,20 +9,13 @@ public class Base : MonoBehaviour
     private float health;
     public float maxHealth = 500f;
     private SpriteRenderer[] ch_sprites;
-    public GameObject diePannel;
+
     private void Awake()
     {
-        diePannel.SetActive(false);
         health = maxHealth;
         ch_sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-       
-    }
     public void TakeDamage(float damage)
     {
         health = Mathf.Max(health - damage, 0);
@@ -30,8 +23,7 @@ public class Base : MonoBehaviour
         DamageEffect();
         if(health <= 0)
         {
-            diePannel.SetActive(true);
-            Time.timeScale = 0;
+            gameManager.instance.LoseController(true);
             Destroy(gameObject);
         }
     }

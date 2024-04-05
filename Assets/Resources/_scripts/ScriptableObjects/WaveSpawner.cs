@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using System.Runtime.CompilerServices;
+using DG.Tweening.Core.Easing;
 
 /// <summary>
 /// Script allows the GameManager to spawn in waves of enemies.
@@ -66,6 +67,7 @@ public class WaveSpawner : MonoBehaviour
         gameManager.instance.currentWave = currentWave;
         // Fixing the time of wave spawn
         waveSpawnTime = Time.time;
+        //gameManager.instance.AddCash(50 + 10 * currentWave);
         // Start the SpawnWave Corutine.
         StartCoroutine(SpawnWave());
 
@@ -74,6 +76,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (Time.time - waveSpawnTime > 30)
         {
+            // Re-enable the nextWaveButton.
             nextWaveButton.SetActive(true);
         }
     }
