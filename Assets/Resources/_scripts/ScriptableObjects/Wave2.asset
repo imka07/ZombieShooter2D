@@ -16,10 +16,10 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 6490799926618088897, guid: eed26d9bbfc4c97498e43126828eb2da,
       type: 3}
     spawnAmount: 3
-    spawnDelay: 2
+    spawnDelay: 0
     spawnRate: 3
   - enemyPrefab: {fileID: 8375028066944256370, guid: 96196b80ec9d1c142aa664ab0846055a,
       type: 3}
     spawnAmount: 3
-    spawnDelay: 2
+    spawnDelay: 0
     spawnRate: 3

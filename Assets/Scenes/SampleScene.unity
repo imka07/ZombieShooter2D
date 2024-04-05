@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10815,7 +10815,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.046759, y: 5.66954, z: -10}
+  m_LocalPosition: {x: -18.08293, y: 5.66946, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14134,9 +14134,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1198309443}
-  - component: {fileID: 1198309444}
   m_Layer: 0
-  m_Name: MonsterSpawner
+  m_Name: MonsterSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14157,31 +14156,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1198309444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198309441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ee4957c51db4284a41bc60815b6856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - {fileID: 11400000, guid: 9cf8fed1f07874f74b09fb7927c0fd65, type: 2}
-  - {fileID: 11400000, guid: 584009faa3fc448bbad531cef1598eee, type: 2}
-  currentWave: 0
-  remainingEnemies: 0
-  waveEnemies: 0
-  isSpawning: 0
-  enemySpawnPosition: {fileID: 1198309443}
-  waveText: {fileID: 1576145773}
-  nextWaveButton: {fileID: 1700881064}
-  OnEnemyRemoved:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1198867521
 GameObject:
   m_ObjectHideFlags: 0
@@ -19525,7 +19499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1198309444}
+      - m_Target: {fileID: 1745308017}
         m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
         m_MethodName: SpawnNextWave
         m_Mode: 1
@@ -20291,6 +20265,7 @@ GameObject:
   - component: {fileID: 1745308015}
   - component: {fileID: 1745308014}
   - component: {fileID: 1745308016}
+  - component: {fileID: 1745308017}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20310,14 +20285,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4b312214461f34488728cc7432bace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWave: 0
+  waveSpawner: {fileID: 1745308017}
   pausePanel: {fileID: 232468779}
-  lostPanel: {fileID: 1745308013}
-  winPanel: {fileID: 946455291}
+  lostPanel: {fileID: 2072734505}
+  winPanel: {fileID: 798142017}
   musicThem: {fileID: 1806311183}
   click: {fileID: 1745308016}
-  currentWave: 0
-  waveSpawner: {fileID: 1198309444}
-  isGameActive: 0
 --- !u!4 &1745308015
 Transform:
   m_ObjectHideFlags: 0
@@ -20327,7 +20301,7 @@ Transform:
   m_GameObject: {fileID: 1745308013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.362635, y: 5.0682297, z: 95.45092}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20429,6 +20403,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1745308017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745308013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ee4957c51db4284a41bc60815b6856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 11400000, guid: 9cf8fed1f07874f74b09fb7927c0fd65, type: 2}
+  - {fileID: 11400000, guid: 584009faa3fc448bbad531cef1598eee, type: 2}
+  currentWave: 0
+  remainingEnemies: 0
+  waveEnemies: 0
+  isSpawning: 0
+  enemySpawnPosition: {fileID: 1198309443}
+  waveText: {fileID: 1576145773}
+  nextWaveButton: {fileID: 1700881064}
+  OnEnemyRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1748100008
 GameObject:
   m_ObjectHideFlags: 0

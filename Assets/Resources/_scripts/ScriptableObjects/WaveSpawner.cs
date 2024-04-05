@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-using System.Runtime.CompilerServices;
-using DG.Tweening.Core.Easing;
 
 /// <summary>
 /// Script allows the GameManager to spawn in waves of enemies.
@@ -22,11 +20,9 @@ public class WaveSpawner : MonoBehaviour
     public Transform enemySpawnPosition;    // Where to spawn the enemies.
     public TextMeshProUGUI waveText;        // Reference UI so information about the wave can be displayed for the Player.
     public GameObject nextWaveButton;       // Reference the UI button that can start the next wave.
-    private float waveSpawnTime;            // Time when we spawned current wave
 
     [Header("Events")]
     public UnityEvent OnEnemyRemoved;       // Event called when an Enemy is removed from play.
-
 
     /// <summary>
     /// Called when the WaveSpawner Object is Enabled.
@@ -35,11 +31,6 @@ public class WaveSpawner : MonoBehaviour
     {
         // Setup a listener that listens to the Enemy.OnDestroyed event/action from the Enemy script.
         ZombieAI.OnDestroyed += OnEnemyDestroyed;
-    }
-
-    private void Start()
-    {
-        //SpawnNextWave();
     }
 
     /// <summary>
@@ -56,7 +47,7 @@ public class WaveSpawner : MonoBehaviour
         // Increment the currentWave counter.
         currentWave++;
 
-        // Check that there is a new wave to spawn aka that we have not reached the games final wave.
+        // Chack that there is a new wave to spawn aka that we have not reached the games final wave.
         if (currentWave - 1 == waves.Length)
         {
             return;
@@ -64,22 +55,11 @@ public class WaveSpawner : MonoBehaviour
 
         // Update the wave text.
         waveText.text = $"Wave: {currentWave}";
-        gameManager.instance.currentWave = currentWave;
-        // Fixing the time of wave spawn
-        waveSpawnTime = Time.time;
-        //gameManager.instance.AddCash(50 + 10 * currentWave);
+
         // Start the SpawnWave Corutine.
         StartCoroutine(SpawnWave());
+    }
 
-    }
-    private void Update()
-    {
-        if (Time.time - waveSpawnTime > 30)
-        {
-            // Re-enable the nextWaveButton.
-            nextWaveButton.SetActive(true);
-        }
-    }
     // Setup a Corutine that can spawn waves.
     IEnumerator SpawnWave()
     {
@@ -133,7 +113,8 @@ public class WaveSpawner : MonoBehaviour
         // Check if all Enemies has been killed.
         if (remainingEnemies == 0 && waveEnemies == 0)
         {
-            SpawnNextWave();
+            // Re-enable the nextWaveButton.
+            nextWaveButton.SetActive(true);
         }
         OnEnemyRemoved?.Invoke();
     }

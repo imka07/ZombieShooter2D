@@ -23,7 +23,7 @@ public class Base : MonoBehaviour
         DamageEffect();
         if(health <= 0)
         {
-            gameManager.instance.LoseController(true);
+            gameManager.instance.GameOver();
             Destroy(gameObject);
         }
     }

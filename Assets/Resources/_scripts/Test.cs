@@ -123,7 +123,7 @@ public class Test : MonoBehaviour
             DamageEffect();
             if(health == 0)
             {
-                gameManager.instance.LoseController(true);
+                gameManager.instance.GameOver();
             }
         }
     }

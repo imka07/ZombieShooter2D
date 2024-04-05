@@ -66,7 +66,6 @@ public class ZombieAI : MonoBehaviour
         {
             PlayClips(0);
             collision.gameObject.GetComponent<Test>().TakeDamage(collisionDamage);
-            OnDestroyed.Invoke();
         }
         else if (collision.tag == "bunker")
         {
@@ -113,12 +112,13 @@ public class ZombieAI : MonoBehaviour
         OnHealthChange?.Invoke(maxHealth, health);
         if (health <= 0)
         {
-            OnDestroyed.Invoke();
+
             Death();
         }
     }
     private void Death()
     {
+        OnDestroyed.Invoke();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
