@@ -12,7 +12,10 @@ public class SimpleZombie : ZombieAI
 
     void Update()
     {
-        Attack();
-        MoveToBunker();
+        if (gameManager.instance.isGameActive)
+        {
+            Attack();
+            MoveToBunker();
+        }
     }
 }

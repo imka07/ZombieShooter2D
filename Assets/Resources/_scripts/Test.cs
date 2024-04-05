@@ -7,7 +7,7 @@ public class Test : MonoBehaviour
 {
     [Header("Player Stats")]
     [SerializeField] private float jumpforce = 1f;
-    private float health;
+    public float health;
     public float maxHealth = 100;
     private bool isGrounded = false;
     public bool speedUp, buffJump, armor, med, dron = false;
@@ -173,7 +173,7 @@ public class Test : MonoBehaviour
 
     private void Update()
     {
-        
+
         tntCountText.text = tntCount.ToString();
         //1.Задает направление и силу , которая действует на персонажа ,за счет чего увеличивая скорость.
         //2. Присваевает скорость, потом идет ограничивание тела в скорости, но скорость не меняется,будет только быстрее доходит до пределов , заданных с помощью Math.Clamp
@@ -181,11 +181,15 @@ public class Test : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // Вычисляем направление движения
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * gameplaySettings.playerMaxMoveSpeed * Time.deltaTime;
+        if (gameManager.instance.isGameActive)
+        {
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * gameplaySettings.playerMaxMoveSpeed * Time.deltaTime;
 
-        // Применяем движение к игроку
-        transform.Translate(movement);
+            // Применяем движение к игроку
+            transform.Translate(movement);
+        }
+        // Вычисляем направление движения
+        
 
         //Проверяем черз if нажата ли кнопка пробел и персонаж на земле, потом задаем направление и умножаюм на силу прыжка
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)

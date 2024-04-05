@@ -1077,6 +1077,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6113339321042346592, guid: 8c036dd8d09225b448cc170fd15f21a1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1454,6 +1459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desert_background_clouds_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246661625154401133, guid: 53494ba9b671bf347ae1ab117e14feed,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2248,7 +2258,7 @@ PrefabInstance:
     - target: {fileID: 747769560592560184, guid: af8dae97b6c20074fb63da30d3b1a044,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.283806
+      value: 67.14
       objectReference: {fileID: 0}
     - target: {fileID: 747769560592560184, guid: af8dae97b6c20074fb63da30d3b1a044,
         type: 3}
@@ -3967,6 +3977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_clouds_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4443042585946687830, guid: 8c5fcf4d0adf306468e1d42c28dd4278,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5272896974999967869, guid: 8c5fcf4d0adf306468e1d42c28dd4278,
         type: 3}
       propertyPath: m_RootOrder
@@ -4235,7 +4250,7 @@ GameObject:
   m_TagString: MapEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &352161335
 Transform:
@@ -4272,7 +4287,6 @@ Transform:
   - {fileID: 352137723}
   - {fileID: 1835482094}
   - {fileID: 1902905807}
-  - {fileID: 1242360824}
   - {fileID: 66030088}
   - {fileID: 1531518113}
   - {fileID: 1833010386}
@@ -5574,6 +5588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desert_background_clouds_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955003540828824759, guid: 9718f66f28696934ba4db63506628f32,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7048,6 +7067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_clouds_1
       objectReference: {fileID: 0}
+    - target: {fileID: 3955003540828824759, guid: 9718f66f28696934ba4db63506628f32,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7226,6 +7250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desert_background_sky (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955793242574621764, guid: 3a01bde79e111474cb956ddf02f69a4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11261,6 +11290,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5229934041659274935, guid: 287bab8b4c799fa4c990d76fd6a583ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7666697944021642844, guid: 287bab8b4c799fa4c990d76fd6a583ae,
         type: 3}
       propertyPath: m_RootOrder
@@ -11535,6 +11569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_clouds_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6246661625154401133, guid: 53494ba9b671bf347ae1ab117e14feed,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11772,6 +11811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990630856366843974, guid: 2d8e2579e1ae3c3458af741ef1d8e4de,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9139295215816280199, guid: 2d8e2579e1ae3c3458af741ef1d8e4de,
         type: 3}
@@ -13073,6 +13117,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desert_background_clouds_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391611785382626754, guid: 484599a28eadb4f44b122a3069189b27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14739,12 +14788,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242283229}
   m_CullTransparentMesh: 0
---- !u!4 &1242360824 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1367209477}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1247394604
 GameObject:
   m_ObjectHideFlags: 0
@@ -15290,6 +15333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577055062553899726, guid: 790b033732562d849bb96e055f7c74f9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5736666645136794969, guid: 790b033732562d849bb96e055f7c74f9,
         type: 3}
@@ -16354,104 +16402,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365974801}
   m_CullTransparentMesh: 1
---- !u!1001 &1367209477
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 352161335}
-    m_Modifications:
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 62.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696986, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696988, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_Name
-      value: desert_front_bush_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696988, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696989, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.5882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 735693809577696989, guid: 7096dd00d90478e45b7229d90fd33b0a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7096dd00d90478e45b7229d90fd33b0a, type: 3}
 --- !u!1 &1385132346
 GameObject:
   m_ObjectHideFlags: 0
@@ -16701,6 +16651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375804098672027628, guid: 67ca91990added24291a722d70fca9d5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6904574917865558623, guid: 67ca91990added24291a722d70fca9d5,
         type: 3}
@@ -17010,12 +16965,12 @@ PrefabInstance:
     - target: {fileID: 5093444789210312713, guid: 82c6ec9b5bb85bb4da538660d9c53b44,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.95686
+      value: 64.08
       objectReference: {fileID: 0}
     - target: {fileID: 5093444789210312713, guid: 82c6ec9b5bb85bb4da538660d9c53b44,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.872315
+      value: -22.85
       objectReference: {fileID: 0}
     - target: {fileID: 5093444789210312713, guid: 82c6ec9b5bb85bb4da538660d9c53b44,
         type: 3}
@@ -17638,6 +17593,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8135086187253553283, guid: 822871d30091c7b469f577eab73f390f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18197,6 +18157,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_sky
       objectReference: {fileID: 0}
+    - target: {fileID: 7955793242574621764, guid: 3a01bde79e111474cb956ddf02f69a4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18214,6 +18179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desert_background_clouds_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443042585946687830, guid: 8c5fcf4d0adf306468e1d42c28dd4278,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5272896974999967869, guid: 8c5fcf4d0adf306468e1d42c28dd4278,
         type: 3}
@@ -18899,6 +18869,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_clouds_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6391611785382626754, guid: 484599a28eadb4f44b122a3069189b27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18926,6 +18901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419826275052328950, guid: 869e3c7102f363449a49d96cb38242e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6790377588990790554, guid: 869e3c7102f363449a49d96cb38242e5,
         type: 3}
@@ -19409,6 +19389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desert_background_clouds_3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391611785382626754, guid: 484599a28eadb4f44b122a3069189b27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20285,6 +20270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4b312214461f34488728cc7432bace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameActive: 0
   currentWave: 0
   waveSpawner: {fileID: 1745308017}
   pausePanel: {fileID: 232468779}
@@ -21656,6 +21642,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_clouds_4
       objectReference: {fileID: 0}
+    - target: {fileID: 4443042585946687830, guid: 8c5fcf4d0adf306468e1d42c28dd4278,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5272896974999967869, guid: 8c5fcf4d0adf306468e1d42c28dd4278,
         type: 3}
       propertyPath: m_RootOrder
@@ -22148,6 +22139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert_background_sky (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7955793242574621764, guid: 3a01bde79e111474cb956ddf02f69a4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22400,6 +22396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566214474364068792, guid: bdca4793b422b4d468e059a39110b64f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23166,6 +23167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951789312051213191, guid: 8fd0a3ecbba840b41af3db6a37bf1bd0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2421484372825458634, guid: 8fd0a3ecbba840b41af3db6a37bf1bd0,
         type: 3}
@@ -26381,6 +26387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475934420212803310, guid: 7367eb0f6ecff1947a974d742716569f,
+        type: 3}
+      propertyPath: health
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4475934420212803310, guid: 7367eb0f6ecff1947a974d742716569f,
         type: 3}

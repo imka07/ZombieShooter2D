@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class gameManager : MonoBehaviour
 {               
   
-    private bool isGameActive;                  // Bool to check if the game is active.
+    public bool isGameActive;                  // Bool to check if the game is active.
 
     public int currentWave;
 
@@ -75,7 +75,7 @@ public class gameManager : MonoBehaviour
         // As the game is over set the isGameActive bool to reflect this.
         isGameActive = false;
         // Activate the EndScreen object.
-        lostPanel.SetActive(false);
+        lostPanel.gameObject.SetActive(true);
         // Set the EndScreen data.
     }
 
