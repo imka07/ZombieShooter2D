@@ -18,8 +18,3 @@ MonoBehaviour:
     spawnAmount: 3
     spawnDelay: 0
     spawnRate: 3
-  - enemyPrefab: {fileID: 8375028066944256370, guid: 96196b80ec9d1c142aa664ab0846055a,
-      type: 3}
-    spawnAmount: 3
-    spawnDelay: 0
-    spawnRate: 3

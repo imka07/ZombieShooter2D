@@ -165,31 +165,29 @@ public class GunController : MonoBehaviour
     private void InstanBulletForShotGun()
     {
 
+        var spawnBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        //for (int i = 0; i <= 2; i++)
+        //{
 
-        for (int i = 0; i <= 2; i++)
-        {
+        //    var spawnBullet = Instantiate(bullet, barrel.position, barrel.rotation);
 
-            var spawnBullet = Instantiate(bullet, barrel.position, barrel.rotation);
-
-
-
-            switch (i)
-            {
-                case 0:
-                    spawnBullet.AddForce(new Vector3(0f, -120f, 0f));
-                    break;
-                case 1:
-                    spawnBullet.AddForce(new Vector3(0f, 0f, 0f));
-                    break;
-                case 2:
-                    spawnBullet.AddForce(new Vector3(0f, 120f, 0f));
-                    break;
-            }
+        //    switch (i)
+        //    {
+        //        case 0:
+        //            spawnBullet.AddForce(new Vector3(0f, -180f, 0f));
+        //            break;
+        //        case 1:
+        //            spawnBullet.AddForce(new Vector3(0f, 0f, 0f));
+        //            break;
+        //        case 2:
+        //            spawnBullet.AddForce(new Vector3(0f, 180f, 0f));
+        //            break;
+        //    }
 
 
 
 
-        }
+        //}
 
 
     }

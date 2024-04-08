@@ -7,7 +7,7 @@ public class pointBullet : MonoBehaviour
 {
     [SerializeField] private GameplaySettings gameplaySettings;
     private Vector3 moveVector;
-    [SerializeField] private float speed;
+    [SerializeField] private float speed, damage;
     [SerializeField] private GameObject destroyEffect;
 
     void Update()
@@ -25,6 +25,22 @@ public class pointBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void DealDamageInRadius(float radius)
+    {
+        // Найти всех врагов в заданном радиусе
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, gameplaySettings.zombie);
+        if (colliders.Length == 0)
+            return;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].GetComponent<ZombieAI>().TakeDamage(damage);
+
+        }
+
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -37,7 +53,7 @@ public class pointBullet : MonoBehaviour
                     DestroyBullet();
                     break;
                 case "zombie":
-                    collision.GetComponent<ZombieAI>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
+                    DealDamageInRadius(1.5f);
                     DestroyBullet();
                     break;
                 case "fly":
