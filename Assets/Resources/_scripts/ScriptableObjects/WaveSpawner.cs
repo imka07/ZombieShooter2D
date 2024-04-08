@@ -14,7 +14,8 @@ public class WaveSpawner : MonoBehaviour
     public int currentWave = 0;             // Keep track of what wave we have reached.
     public int remainingEnemies;            // How many enemies are left.
     public int waveEnemies;                 // How many enemies to spawn for the current wave.
-    public bool isSpawning;                 // Bool to identify if the wavespawner is vurrently spawning units
+    public bool isSpawning;
+     // Bool to identify if the wavespawner is vurrently spawning units
 
     [Header("Components")]
     public Transform enemySpawnPosition;    // Where to spawn the enemies.
@@ -98,6 +99,8 @@ public class WaveSpawner : MonoBehaviour
     {
         // Instantiate an Enemy object and maintain a reference to the prefab.
         GameObject enemy = Instantiate(enemyToSpawn, enemySpawnPosition.position, Quaternion.identity);
+        ZombieAI zombiAIComponent = enemy.GetComponent<ZombieAI>();
+        enemy.transform.position = new Vector3(enemySpawnPosition.position.x, enemySpawnPosition.position.y + zombiAIComponent.heightAbove, 0);
         remainingEnemies++; // Increment the remainingEnemies since a new Enemy has been instantiated.
     }
 

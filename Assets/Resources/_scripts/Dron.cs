@@ -98,9 +98,6 @@ public class Dron : MonoBehaviour
                     hit.transform.GetComponent<ZombieAI>().TakeDamage(damage);
                     Instantiate(hitPrefab, hit.point, Quaternion.identity);
                     break;
-                case "fly":
-                    hit.transform.GetComponent<fly>().TakeDamage(damage);
-                    break;
                 default:
                     Instantiate(ricohetPrefab, hit.point, Quaternion.identity);
                     break;

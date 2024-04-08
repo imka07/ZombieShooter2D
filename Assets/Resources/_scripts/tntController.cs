@@ -64,23 +64,9 @@ public class tntController : MonoBehaviour
 
         }
     }
-    private void DamageFlyUnitsInRadius(float m_radius)
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, m_radius, gameplaySettings.fly);
-        if (colliders.Length == 0)
-            return;
-
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].GetComponent<fly>().TakeDamage(damage);
-
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "zombie")
         DamageZombieUnitsInRadius(radius);
-        if (collision.tag == "fly")
-            DamageFlyUnitsInRadius(radius);
     }
 }

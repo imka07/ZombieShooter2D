@@ -12,6 +12,7 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private float collisionDamage;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
+    public float heightAbove;
     private float timeBetweenAttack;
     public float startBetweenAttack;
     public float attackRange;
@@ -112,7 +113,6 @@ public class ZombieAI : MonoBehaviour
         OnHealthChange?.Invoke(maxHealth, health);
         if (health <= 0)
         {
-
             Death();
         }
     }

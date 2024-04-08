@@ -316,9 +316,6 @@ public class GunController : MonoBehaviour
                     hit.transform.GetComponent<ZombieAI>().TakeDamage(gameplaySettings.weaponSettings.weapons[currentGunIndex].damage);
                     Instantiate(hitPrefab, hit.point, Quaternion.identity);
                     break;
-                case "fly":
-                    hit.transform.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[currentGunIndex].damage);
-                    break;
                 case "bunker":
                     break;
                 default:

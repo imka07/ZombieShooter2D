@@ -59,19 +59,7 @@ public class ProjectileController : MonoBehaviour
             
         }
     }
-    private void forFly()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, fly);
-        if (colliders.Length == 0)
-            return;
-
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].GetComponent<fly>().TakeDamage(damage);
-
-        }
-    }
-
+ 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -81,11 +69,6 @@ public class ProjectileController : MonoBehaviour
             case "zombie":
                 if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
                 forZombie();
-                Destroy(gameObject);
-                break;
-            case "fly":
-                if (explosionEffect != null) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-                forFly();
                 Destroy(gameObject);
                 break;
             case "Ground":

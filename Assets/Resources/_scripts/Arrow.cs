@@ -41,10 +41,5 @@ public class Arrow : MonoBehaviour
             collision.GetComponent<ZombieAI>().TakeDamage(damage);
            
         }
-        if (collision.tag == "fly")
-        {
-            collision.GetComponent<fly>().TakeDamage(damage);
-
-        }
     }
 }

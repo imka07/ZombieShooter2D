@@ -220,16 +220,18 @@ public class Test : MonoBehaviour
         //    }
         //}
 
-        ch_animator.SetFloat("Speed", Input.GetAxisRaw("Horizontal") == 0 ? 0 : 1);
+        ch_animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
-            if (Input.GetAxisRaw("Horizontal") == 0)
-            {
-                ch_animator.SetFloat("Speed", 0);
-            }
-            else
-            {
-                ch_animator.SetFloat("Speed", 1);
-            }
+        //ch_animator.SetFloat("Speed", Input.GetAxisRaw("Horizontal") == 0 ? 0 : 1);
+
+        //    if (Input.GetAxisRaw("Horizontal") == 0)
+        //    {
+        //        ch_animator.SetFloat("Speed", 0);
+        //    }
+        //    else
+        //    {
+        //        ch_animator.SetFloat("Speed", 1);
+        //    }
        
         
     }

@@ -46,18 +46,6 @@ public class acidForAcidRain : MonoBehaviour
             colliders[i].GetComponent<ZombieAI>().TakeDamage(damage);
         }
     }
-    private void forFly()
-    {
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, gameplaySettings.fly);
-        if (colliders.Length == 0)
-            return;
-
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].GetComponent<fly>().TakeDamage(damage);
-        }
-    }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -66,10 +54,6 @@ public class acidForAcidRain : MonoBehaviour
         if (collision.tag == "zombie")
         {
             forZombie();
-        }
-        if (collision.tag == "fly")
-        {
-            forFly();
         }
 
     }

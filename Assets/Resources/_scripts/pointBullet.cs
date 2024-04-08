@@ -53,11 +53,7 @@ public class pointBullet : MonoBehaviour
                     DestroyBullet();
                     break;
                 case "zombie":
-                    DealDamageInRadius(1.5f);
-                    DestroyBullet();
-                    break;
-                case "fly":
-                    collision.GetComponent<fly>().TakeDamage(gameplaySettings.weaponSettings.weapons[3].damage);
+                    DealDamageInRadius(1);
                     DestroyBullet();
                     break;
                 case "MapEnd":

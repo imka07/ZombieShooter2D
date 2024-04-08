@@ -91,8 +91,8 @@ MonoBehaviour:
       shootDelay: 0.6
       maxAmmo: 45
       reloadTime: 1.5
-      shootClip: {fileID: 8300000, guid: 88731c463a1367d449a625474234e312, type: 3}
-      reloadClip: {fileID: 8300000, guid: d6a58852f07e58c4da4f491afb30c47d, type: 3}
+      shootClip: {fileID: 8300000, guid: a2d90a47db64f4a5197f06cc9418be32, type: 3}
+      reloadClip: {fileID: 8300000, guid: efce246840573410393c2feaf1652cb7, type: 3}
       weaponSprite: {fileID: 197437386059793398, guid: 8a53ff76b10880c4787d22209d3830b2,
         type: 3}
       bulletCost: 25
