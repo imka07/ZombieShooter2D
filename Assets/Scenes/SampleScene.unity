@@ -2562,6 +2562,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 776218840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &184217183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4475934421275241094, guid: 7367eb0f6ecff1947a974d742716569f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4475934420927659012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198967496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,14 +3493,14 @@ RectTransform:
   m_GameObject: {fileID: 259196767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2828, y: 1.2828, z: 1.2828}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1700913202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 230.70001, y: 68.80002}
+  m_AnchoredPosition: {x: 228.3, y: 77.7}
   m_SizeDelta: {x: 48, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &259196769
@@ -3517,7 +3523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9651f679d9b791478f0ca8274f2ad4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ca174b430ae84bedabd2222f9b6281b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16829,7 +16835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1427483386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20273,11 +20279,19 @@ MonoBehaviour:
   isGameActive: 0
   currentWave: 0
   waveSpawner: {fileID: 1745308017}
+  currentPlayerCash: 0
+  playerStartCash: 0
   pausePanel: {fileID: 232468779}
   lostPanel: {fileID: 2072734505}
   winPanel: {fileID: 798142017}
   musicThem: {fileID: 1806311183}
   click: {fileID: 1745308016}
+  tntCount: 10
+  tntText: {fileID: 486184258}
+  cashText: {fileID: 6823430397516931931}
+  onPlayerCashChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1745308015
 Transform:
   m_ObjectHideFlags: 0
@@ -20405,6 +20419,7 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 9cf8fed1f07874f74b09fb7927c0fd65, type: 2}
   - {fileID: 11400000, guid: 584009faa3fc448bbad531cef1598eee, type: 2}
+  - {fileID: 11400000, guid: e23c2217b1f4046f59cc10c658078c82, type: 2}
   currentWave: 0
   remainingEnemies: 0
   waveEnemies: 0
@@ -26406,6 +26421,11 @@ PrefabInstance:
       objectReference: {fileID: 117061602}
     - target: {fileID: 4475934420212803310, guid: 7367eb0f6ecff1947a974d742716569f,
         type: 3}
+      propertyPath: tntSpawn
+      value: 
+      objectReference: {fileID: 184217183}
+    - target: {fileID: 4475934420212803310, guid: 7367eb0f6ecff1947a974d742716569f,
+        type: 3}
       propertyPath: diePannel
       value: 
       objectReference: {fileID: 2072734505}
@@ -26499,6 +26519,21 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1222516877}
+    - target: {fileID: 4475934421275241093, guid: 7367eb0f6ecff1947a974d742716569f,
+        type: 3}
+      propertyPath: m_Name
+      value: GrenadeSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475934421275241094, guid: 7367eb0f6ecff1947a974d742716569f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.018
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475934421275241094, guid: 7367eb0f6ecff1947a974d742716569f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.059
+      objectReference: {fileID: 0}
     - target: {fileID: 4475934421678132783, guid: 7367eb0f6ecff1947a974d742716569f,
         type: 3}
       propertyPath: m_IsActive
@@ -26582,6 +26617,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4475934422219284646, guid: 7367eb0f6ecff1947a974d742716569f, type: 3}
+    - {fileID: 4475934421839373073, guid: 7367eb0f6ecff1947a974d742716569f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7367eb0f6ecff1947a974d742716569f, type: 3}

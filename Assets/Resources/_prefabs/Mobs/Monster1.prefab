@@ -244,9 +244,11 @@ MonoBehaviour:
   collisionDamage: 10
   health: 100
   maxHealth: 100
+  heightAbove: 0
   startBetweenAttack: 2
   attackRange: 3
   damage: 10
+  cashOnDeath: 100
   distanse: 0
   audioSource: {fileID: 4611522639964519186}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,

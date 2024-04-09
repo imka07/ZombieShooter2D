@@ -17,19 +17,6 @@ public class GameplaySettings : ScriptableObject
     [Header("LayerMasks")]
     public LayerMask unitsMask;
     public LayerMask zombie;
-    public LayerMask fly;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 }
 

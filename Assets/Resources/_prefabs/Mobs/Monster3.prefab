@@ -272,12 +272,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  collisionDamage: 10
+  collisionDamage: 15
   health: 200
   maxHealth: 200
+  heightAbove: 0
   startBetweenAttack: 3
   attackRange: 3
   damage: 20
+  cashOnDeath: 150
   distanse: 0
   audioSource: {fileID: 8510918552703028882}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,

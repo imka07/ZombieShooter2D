@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Events;
+using DG.Tweening.Core.Easing;
 
 public class ZombieAI : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ZombieAI : MonoBehaviour
     public float startBetweenAttack;
     public float attackRange;
     [SerializeField] private float damage;
+    public int cashOnDeath;
     public float distanse;
     bool isWalking;
     bool canAttack;
@@ -118,6 +120,7 @@ public class ZombieAI : MonoBehaviour
     }
     private void Death()
     {
+        gameManager.instance.AddCash(cashOnDeath);
         OnDestroyed.Invoke();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);

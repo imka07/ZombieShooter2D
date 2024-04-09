@@ -132,6 +132,11 @@ public class GunController : MonoBehaviour
         }
     }
 
+    private void GrenadeThrow()
+    {
+
+    }
+
     public void CanShoot(bool active)
     {
         canShoot = active;

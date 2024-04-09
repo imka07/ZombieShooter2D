@@ -8,22 +8,18 @@ public class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private GameObject activeObject;
     [SerializeField] private Canvas canvas;
-    private Camera _mainCamera;
     public delegate void OnDragEndHandler(Vector3 screenPosition);
     public OnDragEndHandler OnDragEnd;
-    private Test test;
     public AudioSource failed;
     private Animator anim;
     private void Start()
     {
         anim = GetComponent<Animator>();
-        test = FindObjectOfType<Test>();
-        _mainCamera = Camera.main;
     }
 
     public void OnDown(BaseEventData data)
     {
-        if(test.tntCount > 0)
+        if(gameManager.instance.tntCount > 0)
         {
            
             PointerEventData pointerData = (PointerEventData)data;

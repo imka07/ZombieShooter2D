@@ -39,7 +39,6 @@ public class DoorController : MonoBehaviour
 
         //перемещаем персонажа в центр двери, в которую заходим, и блокируем движение перса
         player.transform.position = transform.position;
-        player.GetComponent<Test>().LockControls();
 
         //плавно меняем прозрачность (от 0 до 1)
         while (alpha < 1)
@@ -65,7 +64,6 @@ public class DoorController : MonoBehaviour
         float alpha = 1;
 
         //разблокируем перса
-        player.GetComponent<Test>().UnlockControls();
 
         //плавно меняем прозрачность (от 1 до 0)
         while (alpha > 0)

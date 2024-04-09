@@ -22,9 +22,6 @@ public class Test : MonoBehaviour
     public AudioSource lootSound;
     [SerializeField] private GameplaySettings gameplaySettings;
 
-
-
-    [SerializeField] DragAndDrop tntDrop;
     private MainUiController MUC;
     //private bool isWall = false;
     public delegate void OnHpChangeHandler(float maxHp, float currentHp);
@@ -33,21 +30,17 @@ public class Test : MonoBehaviour
     public int genAmmo { get; private set; } = 0;
     private Vector3 moveVector;
     [SerializeField] private GameObject tnt;
-    [SerializeField] private GameObject tntSpawn;
-    public int tntCount;
-    [SerializeField] private Text tntCountText;
+    [SerializeField] private Transform tntSpawn;
     public GameObject Dron;
     public GameObject dronSpawn;
 
     void Start()
     {
-        tntCount = 0;
         MUC = FindObjectOfType<MainUiController>();
         rb = GetComponent<Rigidbody2D>();
         ch_animator = GetComponent<Animator>();
         ch_animator.SetFloat("Fast", 1f);
         health = maxHealth;
-        tntDrop.OnDragEnd += Tnt;
         ch_sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
@@ -63,15 +56,20 @@ public class Test : MonoBehaviour
     }
    
    
-    public void Tnt(Vector3 pos)
+    private void Grenade()
     {
-        if(tntCount > 0)
+        Vector3 targetPositionScreen = Input.mousePosition;
+        Vector3 targetPositionWorld = Camera.main.ScreenToWorldPoint(targetPositionScreen);
+        targetPositionWorld.z = 0f;
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            tntController _tntController = Instantiate(tnt, transform.position, Quaternion.identity).GetComponent<tntController>();
-            _tntController.Throw(transform.position, Camera.main.ScreenToWorldPoint(pos));
-            tntCount--;
+            if (gameManager.instance.tntCount > 0)
+            {
+                tntController tntController =  Instantiate(tnt, transform.position, Quaternion.identity).GetComponent<tntController>();
+                tntController.Throw(tntSpawn.position, targetPositionWorld);
+                gameManager.instance.tntCount--;
+            }
         }
-        
     }
 
     private void DamageEffect()
@@ -115,7 +113,8 @@ public class Test : MonoBehaviour
        
     //}
     public void TakeDamage(float damage)
-    {   // Если это не броня , то сносим жизни и делаем эффект от дамага , и ставим жизни на 0
+    {
+
         if(!armor)
         {
             health = Mathf.Max(health - damage, 0);
@@ -173,25 +172,18 @@ public class Test : MonoBehaviour
 
     private void Update()
     {
-
-        tntCountText.text = tntCount.ToString();
-        //1.Задает направление и силу , которая действует на персонажа ,за счет чего увеличивая скорость.
-        //2. Присваевает скорость, потом идет ограничивание тела в скорости, но скорость не меняется,будет только быстрее доходит до пределов , заданных с помощью Math.Clamp
-        // Проверяется , если это не стена , то выполняем обычное передвижение, а если на стене , то идет заторможение по y
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
         if (gameManager.instance.isGameActive)
         {
+            ch_animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
             Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * gameplaySettings.playerMaxMoveSpeed * Time.deltaTime;
-
-            // Применяем движение к игроку
             transform.Translate(movement);
         }
-        // Вычисляем направление движения
         
+        Grenade();
 
-        //Проверяем черз if нажата ли кнопка пробел и персонаж на земле, потом задаем направление и умножаюм на силу прыжка
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             if (!buffJump)
@@ -205,9 +197,6 @@ public class Test : MonoBehaviour
         }
 
 
-        // Проверяется через if нажат ли пробел, и,если это стена, то
-        // Через if проверяется луч Physics2D.Raycast на правой ли стене персонаж,если да , то задаем направление вверх и минусуем вектор вправо, чтобы тело отскакивало в другую сторону,потом умножаем на jumpforce ,который в свою очередь увеличен в полтора раза.
-        // И наоборот, если персонаж - правой стороне , то заадем направление вверх и плюсуем вектор вправо, потом умножаем уже увеличенную в 1,5 раза jumpforce
         //if (Input.GetKeyDown(KeyCode.Space) && isWall)
         //{
         //    if (Physics2D.Raycast(transform.position, transform.right, 1))
@@ -220,20 +209,6 @@ public class Test : MonoBehaviour
         //    }
         //}
 
-        ch_animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-
-        //ch_animator.SetFloat("Speed", Input.GetAxisRaw("Horizontal") == 0 ? 0 : 1);
-
-        //    if (Input.GetAxisRaw("Horizontal") == 0)
-        //    {
-        //        ch_animator.SetFloat("Speed", 0);
-        //    }
-        //    else
-        //    {
-        //        ch_animator.SetFloat("Speed", 1);
-        //    }
-       
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -284,47 +259,11 @@ public class Test : MonoBehaviour
 
         if (collision.tag == "Medicine")
         {
-            
             Heal(50);
             Destroy(collision.gameObject);
         }
-
-        //if (collision.tag == "money")
-        //{
-        //    PlayerPrefs.SetFloat("cash", cash);
-        //    cash += 20;
-        //    moneyTake.Play();
-        //    Destroy(collision.gameObject);
-        //}
-
       
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-
-            if (collision.tag == "Door")
-            {
-                if (Input.GetKey(KeyCode.F))
-                {
-                    collision.GetComponent<DoorController>().In();
-                }
-            }
-    }
-
-    public void LockControls()
-    {
-        //lockControls = true;
-        //rb.velocity = Vector2.zero;
-        //ch_animator.SetFloat("Speed", 0);
-    }
-
-    public void UnlockControls()
-    {
-        //lockControls = false;
-    }
-
-
 }
 
 

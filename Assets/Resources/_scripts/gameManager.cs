@@ -4,22 +4,33 @@ using DG.Tweening.Core.Easing;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.Events;
 
 public class gameManager : MonoBehaviour
 {               
   
-    public bool isGameActive;                  // Bool to check if the game is active.
+    public bool isGameActive;                 
 
     public int currentWave;
 
 
 
-    public WaveSpawner waveSpawner;             // Reference the WaveSpawner.
+    public WaveSpawner waveSpawner;
+
+    [Header("GameData")]           
+    public int currentPlayerCash;               
+    public int playerStartCash;        
 
 
     [SerializeField] private GameObject pausePanel, lostPanel, winPanel;
     public AudioSource musicThem;
     public AudioSource click;
+    public int tntCount = 0;
+    public TextMeshProUGUI tntText;
+    public Text cashText;
+
+    public UnityEvent onPlayerCashChanged;
 
     public static gameManager instance;         // Reference the GameManager.
 
@@ -53,11 +64,17 @@ public class gameManager : MonoBehaviour
     {
         // Set the isGameActive bool.
         isGameActive = true;
+        currentPlayerCash = playerStartCash;
+        UpdateCashText();
         // Set the Player current cash to be the Player Start cash.
         // In the beginning of the game there are no enemies set the waveSpawner.waveEnemies to reflect this.
         waveSpawner.waveEnemies = 0;
     }
 
+    private void UpdateCashText()
+    {
+        cashText.text = currentPlayerCash.ToString();
+    }
 
     void OpenPause()
     {
@@ -112,6 +129,7 @@ public class gameManager : MonoBehaviour
 
     private void Update()
     {
+        tntText.text = tntCount.ToString();
         OpenPause();
     }
 
@@ -122,12 +140,17 @@ public class gameManager : MonoBehaviour
 
     public void AddCash(int amount)
     {
-        // Award the currentPlayerCash with the amount the Player is awarded with for killing an Enemy object.
-        //currentPlayerCash += amount;
-        //// Update the Player healthAndCashText so that the UI reflects the correct amount of available cas�h that the Player has.
-        //UpdateHealthAndCashText();
-        //// Invoke the onPlayerCashChanged event.
-        //onPlayerCashChanged.Invoke();
+        currentPlayerCash += amount;
+        UpdateCashText();
+        onPlayerCashChanged.Invoke();
+    }
+
+    public void TakeCash(int amount)
+    {
+        currentPlayerCash -= amount;
+        UpdateCashText();
+
+        onPlayerCashChanged.Invoke();
     }
 
     public void ContinueGame()
