@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
@@ -19,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Components")]
     public Transform enemySpawnPosition;    // Where to spawn the enemies.
-    public TextMeshProUGUI waveText;        // Reference UI so information about the wave can be displayed for the Player.
+    public Text waveText;        // Reference UI so information about the wave can be displayed for the Player.
     public GameObject nextWaveButton;       // Reference the UI button that can start the next wave.
 
     [Header("Events")]
@@ -55,7 +56,7 @@ public class WaveSpawner : MonoBehaviour
         }
 
         // Update the wave text.
-        waveText.text = $"Wave: {currentWave}";
+        waveText.text = currentWave.ToString();
 
         // Start the SpawnWave Corutine.
         StartCoroutine(SpawnWave());

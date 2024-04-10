@@ -609,15 +609,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87e580b84a47f24a91e3904a9ddfbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
-  collisionDamage: 10
-  health: 150
-  maxHealth: 150
+  speed: 45
+  collisionDamage: 15
+  health: 175
+  maxHealth: 175
   heightAbove: 3.5
-  startBetweenAttack: 3
+  startBetweenAttack: 2
   attackRange: 1
   damage: 30
-  cashOnDeath: 175
+  cashOnDeath: 45
   distanse: 0
   audioSource: {fileID: 2654927501817423116}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
@@ -640,8 +640,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: -0.2
+      time: -0.0049438477
+      value: 1.9999816
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -649,8 +649,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5
-      value: 0.2
+      time: 0.44036865
+      value: 1.7986627
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -658,8 +658,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: -0.2
+      time: 0.8708496
+      value: 1.9999816
       inSlope: 0
       outSlope: 0
       tangentMode: 136

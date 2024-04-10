@@ -156,7 +156,7 @@ public class Test : MonoBehaviour
     {
         armor = false;
     }
-    // Update is called once per frame
+
     void FixedUpdate()
     {
          rb.AddForce(moveVector);

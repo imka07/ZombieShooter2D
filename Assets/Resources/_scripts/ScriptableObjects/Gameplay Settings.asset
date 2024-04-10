@@ -34,7 +34,7 @@ MonoBehaviour:
       ShotGunBullet: {fileID: 0}
       point: {x: -24.52, y: 10.287, z: 0}
     - name: Assault Rifle
-      damage: 20
+      damage: 15
       shootDelay: 0.075
       maxAmmo: 30
       reloadTime: 1.5
@@ -147,6 +147,3 @@ MonoBehaviour:
   zombie:
     serializedVersion: 2
     m_Bits: 1024
-  fly:
-    serializedVersion: 2
-    m_Bits: 32768

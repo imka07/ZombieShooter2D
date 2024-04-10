@@ -102,15 +102,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b8f43c07aeb41b1b16826b5284bdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
+  speed: 30
   collisionDamage: 13
-  health: 150
-  maxHealth: 150
+  health: 175
+  maxHealth: 175
   heightAbove: 0
   startBetweenAttack: 3
   attackRange: 3
   damage: 15
-  cashOnDeath: 125
+  cashOnDeath: 25
   distanse: 0
   audioSource: {fileID: 3490082802370676186}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
