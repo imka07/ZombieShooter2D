@@ -16,8 +16,6 @@ public class GunController : MonoBehaviour
     public Test test;
     private float TimeShot;
     public float startTimeShoot;
-    private float TimeShotofLaser;
-    public float startTimeShootOfLaser;
     [SerializeField] AudioSource gunShoot;
     [SerializeField] AudioSource gunReload;
     public Transform barrel;
@@ -76,7 +74,48 @@ public class GunController : MonoBehaviour
             }
 
         }
-       
+
+        Uzi();
+        LaserSetting();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeGun(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeGun(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeGun(3);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeGun(4);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeGun(2);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeGun(6);
+        if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
+    }
+
+
+
+    private void LaserSetting()
+    {
+        if (currentAmmo > 0)
+        {
+            if (currentGunIndex == 6)
+            {
+                if (Input.GetMouseButton(0) && canShoot)
+                {
+                    LaserShoot();
+                }
+
+            }
+
+        }
+    }
+
+    public AudioSource laserSound;
+    private void PlayLaserSound()
+    {
+        if (laserSound != null) // Убеждаемся, что ссылка на источник звука существует
+        {
+            laserSound.PlayOneShot(laserSound.clip); // Воспроизводим звук лазера один раз
+        }
+    }
+
+    private void Uzi()
+    {
         if (currentAmmo > 0)
         {
             if (currentGunIndex == 4)
@@ -95,47 +134,10 @@ public class GunController : MonoBehaviour
                 }
 
             }
-           
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeGun(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeGun(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeGun(3);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeGun(4);
-        if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeGun(2);
-        if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeGun(6);
-        if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
-    }
-
-    private void LaserSetting()
-    {
-        if (currentAmmo > 0)
-        {
-            if (currentGunIndex == 6)
-            {
-                if (TimeShotofLaser <= 0)
-                {
-                    if (Input.GetMouseButton(0))
-                    {
-                        LaserShoot();
-                        TimeShotofLaser = startTimeShootOfLaser;
-                    }
-                }
-                else
-                {
-                    TimeShotofLaser -= Time.deltaTime;
-                }
-
-            }
 
         }
     }
 
-    private void GrenadeThrow()
-    {
-
-    }
 
     public void CanShoot(bool active)
     {
@@ -189,9 +191,6 @@ public class GunController : MonoBehaviour
         //            break;
         //    }
 
-
-
-
         //}
 
 
@@ -228,16 +227,14 @@ public class GunController : MonoBehaviour
 
     private void LaserShoot()
     {
-        CinemachineShaker.Instance.Shaker(1, 0.2f);
-        PlayShootSound(gameplaySettings.weaponSettings.weapons[currentGunIndex].shootClip);
         var shootDirection = bulletLauncher.transform.right;
         RaycastHit2D hit = Physics2D.Raycast(bulletLauncher.transform.position, shootDirection, gameplaySettings.weaponSettings.shootDistance); //запуск райкаста
         CheckHit(hit);
-        DrawTraccer(hit); // отрисовка трассера
+        DrawTraccer(hit); 
         currentAmmo--;
         OnAmmoChange?.Invoke();
-
         CheckAmmo();
+        PlayLaserSound();
     }
     private void UziShoot()
     {

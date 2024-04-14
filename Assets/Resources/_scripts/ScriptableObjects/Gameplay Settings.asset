@@ -33,6 +33,7 @@ MonoBehaviour:
       arrow: {fileID: 0}
       ShotGunBullet: {fileID: 0}
       point: {x: -24.52, y: 10.287, z: 0}
+      hitPrefab: {fileID: 0}
     - name: Assault Rifle
       damage: 22
       shootDelay: 0.075
@@ -50,6 +51,7 @@ MonoBehaviour:
       arrow: {fileID: 0}
       ShotGunBullet: {fileID: 0}
       point: {x: -36.55851, y: 10.53163, z: 0}
+      hitPrefab: {fileID: 0}
     - name: Grenade Launcher
       damage: 60
       shootDelay: 0.9
@@ -69,6 +71,7 @@ MonoBehaviour:
       ShotGunBullet: {fileID: 9077342799359461021, guid: 1ee60123d25e560439d20cc4c99df236,
         type: 3}
       point: {x: -36.6213, y: 10.50457, z: 0}
+      hitPrefab: {fileID: 0}
     - name: ShotGun
       damage: 90
       shootDelay: 0.6
@@ -86,6 +89,7 @@ MonoBehaviour:
       ShotGunBullet: {fileID: 9151846511569435362, guid: 1ee60123d25e560439d20cc4c99df236,
         type: 3}
       point: {x: -36.22017, y: 10.06371, z: 0}
+      hitPrefab: {fileID: 0}
     - name: Uzi
       damage: 10
       shootDelay: 0.6
@@ -103,6 +107,7 @@ MonoBehaviour:
       arrow: {fileID: 0}
       ShotGunBullet: {fileID: 0}
       point: {x: -36.22017, y: 10.06371, z: 0}
+      hitPrefab: {fileID: 0}
     - name: CrossBow
       damage: 35
       shootDelay: 1.4
@@ -121,8 +126,9 @@ MonoBehaviour:
         type: 3}
       ShotGunBullet: {fileID: 0}
       point: {x: -36.22017, y: 10.06371, z: 0}
+      hitPrefab: {fileID: 0}
     - name: Laser
-      damage: 7
+      damage: 2
       shootDelay: 0.3
       maxAmmo: 60
       reloadTime: 0
@@ -137,6 +143,7 @@ MonoBehaviour:
       arrow: {fileID: 0}
       ShotGunBullet: {fileID: 0}
       point: {x: -36.22017, y: 10.06371, z: 0}
+      hitPrefab: {fileID: 0}
   aISettings:
     armorBreakFx: {fileID: 782821109702973013, guid: e0652cd9a17f318459058824c4c3c4e0,
       type: 3}

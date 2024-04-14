@@ -123,38 +123,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a8403d30c557a4c88a36bd2a469ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tntDrop: {fileID: 0}
-  aura: {fileID: 4475934421678132783}
   jumpforce: 1000
+  health: 0
+  maxHealth: 150
   speedUp: 0
   buffJump: 0
   armor: 0
   med: 0
   dron: 0
-  iconWeapon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  maxHealth: 150
-  moneyText: {fileID: 0}
-  moneyTake: {fileID: 4475934420212803306}
-  cash: 0
-  darkness: {fileID: 4475934421839373073}
-  medButton: {fileID: 0}
-  diePannel: {fileID: 0}
-  tnt: {fileID: 5225310158830152627, guid: 47f60e2012423774da9a9a310fdb4094, type: 3}
-  tntSpawn: {fileID: 4475934421275241093}
-  tntCount: 0
-  tntCountText: {fileID: 0}
-  variant: {fileID: 2788983323122647093, guid: fc583a365d52b764da82940c3225aad9, type: 3}
-  lootSound: {fileID: 4475934420212803307}
-  Spawnvariant: {fileID: 0}
-  gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
   timeBtSpawn: 0
+  aura: {fileID: 4475934421678132783}
+  moneyTake: {fileID: 4475934420212803306}
+  lootSound: {fileID: 4475934420212803307}
+  gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
+  medButton: {fileID: 0}
+  tnt: {fileID: 5225310158830152627, guid: 47f60e2012423774da9a9a310fdb4094, type: 3}
+  tntSpawn: {fileID: 4475934421275241094}
   Dron: {fileID: 3358832397191412658, guid: f75007e7ed09ca0479e0a4170c9340ff, type: 3}
   dronSpawn: {fileID: 0}
 --- !u!95 &4475934420212803298
@@ -1114,7 +1098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820aeca8ed6b2084e918f7527a330227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakePresetPistol: {fileID: 11400000, guid: bd4328bd5427ab74383676e7049ce3d3, type: 2}
   bulletLauncher: {fileID: 4475934421610362991}
   tracerPrefab: {fileID: 1543811076342161813, guid: 1b836dbe788e39f4f97c864c0babbb0f,
     type: 3}
@@ -1137,7 +1120,6 @@ MonoBehaviour:
   rotateDown: 0
   player: {fileID: 4475934420212803299}
   gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
-  joystick: {fileID: 0}
 --- !u!82 &4475934421830052829
 AudioSource:
   m_ObjectHideFlags: 0

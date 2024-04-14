@@ -113,6 +113,7 @@ public class ZombieAI : MonoBehaviour
     {
         health = Mathf.Max(health - damage, 0);
         OnHealthChange?.Invoke(maxHealth, health);
+        FloatDamageController.instance.FloatDamageEffect(transform.position, damage);
         if (health <= 0)
         {
             Death();
