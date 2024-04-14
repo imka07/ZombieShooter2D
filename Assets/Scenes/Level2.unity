@@ -8163,7 +8163,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.07986, y: 5.66946, z: -10}
+  m_LocalPosition: {x: -18.041084, y: 5.66956, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11227,7 +11227,6 @@ MonoBehaviour:
   gunRenderer: {fileID: 1313445846}
   test: {fileID: 804018922}
   startTimeShoot: 0.07
-  startTimeShootOfLaser: 0.03
   gunShoot: {fileID: 1313445849}
   gunReload: {fileID: 1313445850}
   barrel: {fileID: 1708190807}
@@ -11236,6 +11235,7 @@ MonoBehaviour:
   rotateDown: 0
   player: {fileID: 804018919}
   gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
+  laserSound: {fileID: 0}
 --- !u!82 &1313445849
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14595,11 +14595,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: 9cf8fed1f07874f74b09fb7927c0fd65, type: 2}
-  - {fileID: 11400000, guid: 584009faa3fc448bbad531cef1598eee, type: 2}
-  - {fileID: 11400000, guid: e23c2217b1f4046f59cc10c658078c82, type: 2}
-  - {fileID: 11400000, guid: ed74337813290964cac461494fc2f78c, type: 2}
-  - {fileID: 11400000, guid: 4de5629ae7db2324f8e29dcc753f7f44, type: 2}
+  - {fileID: 11400000, guid: 06604f9c170584306ab786060ac0dcf3, type: 2}
+  - {fileID: 11400000, guid: b162890cb844f4f7aabc8759485f6747, type: 2}
+  - {fileID: 11400000, guid: 1c60dec470a8940c7a934dc7c09636d9, type: 2}
+  - {fileID: 11400000, guid: 1a112978e5e1242b3b402ad6dbb96e1c, type: 2}
+  - {fileID: 11400000, guid: 3f65c4ca95c824ac9ae7f784dde7fb0a, type: 2}
   currentWave: 0
   remainingEnemies: 0
   waveEnemies: 0
