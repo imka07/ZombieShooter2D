@@ -9,11 +9,6 @@ public class MenuManager : MonoBehaviour
     public AudioSource click;
     public GameObject settingsPanel;
 
-    void Start()
-    {
-        settingsPanel.SetActive(false);
-    }
-
     public void OpenSettings()
     {
         click.Play();
