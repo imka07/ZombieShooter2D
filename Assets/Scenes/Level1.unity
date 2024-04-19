@@ -6989,7 +6989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158.27997, y: -207.88}
+  m_AnchoredPosition: {x: 204, y: -207.88}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &777425404
@@ -7038,7 +7038,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745308014}
+        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &779407653
 GameObject:
@@ -8786,7 +8798,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.057838, y: 5.66952, z: -10}
+  m_LocalPosition: {x: -18.0238, y: 5.6696, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15622,6 +15634,7 @@ MonoBehaviour:
   tntCount: 2
   tntText: {fileID: 486184258}
   cashText: {fileID: 6823430397516931931}
+  musicToggle: {fileID: 777425404}
   onPlayerCashChanged:
     m_PersistentCalls:
       m_Calls: []

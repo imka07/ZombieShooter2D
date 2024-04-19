@@ -11,11 +11,7 @@ public class gameManager : MonoBehaviour
 {               
   
     public bool isGameActive;                 
-
     public int currentWave;
-
-
-
     public WaveSpawner waveSpawner;
 
     [Header("GameData")]           
@@ -29,45 +25,32 @@ public class gameManager : MonoBehaviour
     public int tntCount = 0;
     public TextMeshProUGUI tntText;
     public Text cashText;
+    public Toggle musicToggle;
 
     public UnityEvent onPlayerCashChanged;
 
-    public static gameManager instance;         // Reference the GameManager.
+    public static gameManager instance;        
 
-    /// <summary>
-    /// Called when the GameManager Object is Enabled.
-    /// </summary>
     private void OnEnable()
     {
         waveSpawner.OnEnemyRemoved.AddListener(OnEnemyDestroyed);
     }
 
-    /// <summary>
-    /// Called when the GameManager Object is Disabled.
-    /// </summary>
     private void OnDisable()
     {
         waveSpawner.OnEnemyRemoved.RemoveListener(OnEnemyDestroyed);
     }
 
-    /// <summary>
-    /// Using Awake make sure that GameManager is created as a Singleton.
-    /// Awake is called before "Start" methods
-    /// </summary>
     private void Awake()
     {
-        // Set the Instance reference.
         instance = this;
     }
 
     private void Start()
     {
-        // Set the isGameActive bool.
         isGameActive = true;
         currentPlayerCash = playerStartCash;
         UpdateCashText();
-        // Set the Player current cash to be the Player Start cash.
-        // In the beginning of the game there are no enemies set the waveSpawner.waveEnemies to reflect this.
         waveSpawner.waveEnemies = 0;
     }
 
@@ -89,42 +72,41 @@ public class gameManager : MonoBehaviour
 
     public void GameOver()
     {
-        // As the game is over set the isGameActive bool to reflect this.
         isGameActive = false;
-        // Activate the EndScreen object.
         lostPanel.gameObject.SetActive(true);
-        // Set the EndScreen data.
     }
 
-    /// <summary>
-    /// When the Player has met the requirements to win the game, the Player wins the game.
-    /// Activate and set the EndScreen.
-    /// </summary>
     private void GameWin()
     {
-        // If the Player won the game the game is no longer active, so set the isGameActive to reflect this.
         isGameActive = false;
-        // Activate the EndScreen object.
         winPanel.gameObject.SetActive(true);
-        // Set the EndScreen data.
     }
 
-    /// <summary>
-    /// OnEnemyDestroyed ties into the onEnemyDestroyed event, and is called when an enemy is destroyed.
-    /// </summary>
     public void OnEnemyDestroyed()
     {
         if (!isGameActive)
         {
-            // If the game is not active don't do anything when an Enemy is destroyed.
             return;
         }
-        // Check if there are enemies left AND that the Player is on the games last wave.
         if (waveSpawner.remainingEnemies == 0 && waveSpawner.currentWave == waveSpawner.waves.Length && waveSpawner.waveEnemies == 0)
         {
-            // Call the win game method, when the Player has killed all enemies and the Player has reached the final wave of the Game.
             GameWin();
         }
+    }
+
+    public void ToggleMusic()
+    {
+        if (musicToggle.isOn)
+        {
+            // Включаем музыку
+            musicThem.Play();
+        }
+        else
+        {
+            // Выключаем музыку
+            musicThem.Stop();
+        }
+
     }
 
     private void Update()
