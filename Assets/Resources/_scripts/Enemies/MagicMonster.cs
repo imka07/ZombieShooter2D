@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class MagicMonster : ZombieAI
 {
-   
+    Base bunkerController;
     void Start()
     {
         Init();
+        bunkerController = FindObjectOfType<Base>();
     }
 
     void Update()
     {
+        float distanceToBuker = Vector2.Distance(transform.position, bunkerController.transform.position);
+
         if (gameManager.instance.isGameActive)
         {
-            Attack();
-            MoveToBunker();
+            if (distance < distanceToBuker + 9.601265f)
+            {
+                MoveToBunker();
+            }
         }
     }
 }

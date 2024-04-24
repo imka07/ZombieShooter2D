@@ -19,7 +19,7 @@ public class ZombieAI : MonoBehaviour
     public float attackRange;
     [SerializeField] private float damage;
     public int cashOnDeath;
-    public float distanse;
+    public float distance;
     bool isWalking;
     bool canAttack;
 
@@ -35,7 +35,7 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private Animator anim;
     public LayerMask playerMask;
     public LayerMask bunker;
-
+ 
 
 
     public delegate void OnHealthChangeHandler(float maxHP, float currentHP);
