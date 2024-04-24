@@ -74,6 +74,7 @@ public class ZombieAI : MonoBehaviour
         {
             canAttack = true;
             isWalking = false;
+            anim.SetBool("isWalking", false);
         }
     }
 

@@ -67,6 +67,7 @@ public class gameManager : MonoBehaviour
             click.Play();
             pausePanel.SetActive(true);
             player.CanShoot(false);
+            isGameActive = false;
         }
     }
 
@@ -141,6 +142,7 @@ public class gameManager : MonoBehaviour
         click.Play();
         pausePanel.SetActive(false);
         player.CanShoot(true);
+        isGameActive = true;
     }
 
     public void ToMenu()
