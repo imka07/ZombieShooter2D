@@ -587,7 +587,7 @@ MonoBehaviour:
   attackRange: 2
   damage: 20
   cashOnDeath: 50
-  distanse: 50
+  distance: 35
   audioSource: {fileID: 229658067610451817}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
     type: 3}
@@ -598,13 +598,14 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 4daedea3eecf11147935e5fa6a35a575, type: 3}
   - {fileID: 8300000, guid: 964e13dd2b5d0974993ecafcedaef3bf, type: 3}
-  anim: {fileID: 2891912378235719049}
   playerMask:
     serializedVersion: 2
     m_Bits: 16384
   bunker:
     serializedVersion: 2
     m_Bits: 4096
+  fireBall: {fileID: 7114248703847464222, guid: 246c37426b7c39448bdf6527003d6069,
+    type: 3}
 --- !u!1 &7041850932709509916
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ Transform:
   m_GameObject: {fileID: 7041850932709509916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.086557455, w: 0.9962469}
-  m_LocalPosition: {x: -0.61706054, y: 1.2913873, z: -0.014460309}
+  m_LocalPosition: {x: -0.642, y: 1.375, z: -0.014460309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

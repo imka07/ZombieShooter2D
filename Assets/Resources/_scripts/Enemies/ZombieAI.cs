@@ -14,14 +14,14 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
     public float heightAbove;
-    private float timeBetweenAttack;
+    protected float timeBetweenAttack;
     public float startBetweenAttack;
     public float attackRange;
     [SerializeField] private float damage;
     public int cashOnDeath;
     public float distance;
     bool isWalking;
-    bool canAttack;
+    protected bool canAttack;
 
     [Header("Zombie Components")]
     [SerializeField] private AudioSource audioSource;
@@ -32,7 +32,7 @@ public class ZombieAI : MonoBehaviour
     public ParticleSystem deathParticles;
     public Transform attackPos;
     public AudioClip[] audioClips;
-    [SerializeField] private Animator anim;
+    protected Animator anim;
     public LayerMask playerMask;
     public LayerMask bunker;
  
@@ -84,12 +84,12 @@ public class ZombieAI : MonoBehaviour
         audioSource.Play();
     }
     
-    public void Attack()
+    public virtual void Attack()
     {
         if (canAttack) OnAttack();
     }
 
-    private void OnAttack()
+    public virtual void OnAttack()
     {
         if(timeBetweenAttack <= 0)
         {

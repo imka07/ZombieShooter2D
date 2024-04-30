@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Wave5
   m_EditorClassIdentifier: 
   enemySets:
-  - enemyPrefab: {fileID: 96953933307941505, guid: 666b7562ea8286a4c9a73ecbcde9f679,
+  - enemyPrefab: {fileID: 5600347076844282563, guid: 43001e06f1bf64f9c82beb2b43156299,
       type: 3}
-    spawnAmount: 5
+    spawnAmount: 10
     spawnDelay: 0
     spawnRate: 1.5
-  - enemyPrefab: {fileID: 5600347076844282563, guid: 756dbd0161dcec748b95db3fcb84c48b,
+  - enemyPrefab: {fileID: 2042727663985396517, guid: 5f5faae7cc322914d8efc12de3d191ef,
       type: 3}
-    spawnAmount: 8
+    spawnAmount: 10
     spawnDelay: 3
     spawnRate: 1.5
-  - enemyPrefab: {fileID: 2042623225147202415, guid: 39385abaa1419dd49a82630f158c9b93,
+  - enemyPrefab: {fileID: 8898566659909274713, guid: 12df7e1d6e59b664ab788e8bd58e7501,
       type: 3}
-    spawnAmount: 6
+    spawnAmount: 10
     spawnDelay: 3
     spawnRate: 1.5

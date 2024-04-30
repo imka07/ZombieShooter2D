@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -615758618, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   attackRange: 3
   damage: 10
   cashOnDeath: 10
-  distanse: 0
+  distance: 0
   audioSource: {fileID: 4611522639964519186}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
     type: 3}
@@ -260,7 +260,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 4daedea3eecf11147935e5fa6a35a575, type: 3}
   - {fileID: 8300000, guid: 964e13dd2b5d0974993ecafcedaef3bf, type: 3}
-  anim: {fileID: 7847508377568991042}
   playerMask:
     serializedVersion: 2
     m_Bits: 16384

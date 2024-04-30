@@ -445,12 +445,12 @@ MonoBehaviour:
   collisionDamage: 5
   health: 110
   maxHealth: 110
-  heightAbove: 0.5
+  heightAbove: 0.8
   startBetweenAttack: 2
   attackRange: 3
   damage: 13
   cashOnDeath: 35
-  distanse: 0
+  distance: 0
   audioSource: {fileID: -3609214411392079231}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
     type: 3}
@@ -461,7 +461,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 4daedea3eecf11147935e5fa6a35a575, type: 3}
   - {fileID: 8300000, guid: 964e13dd2b5d0974993ecafcedaef3bf, type: 3}
-  anim: {fileID: 777033075262386847}
   playerMask:
     serializedVersion: 2
     m_Bits: 16384
