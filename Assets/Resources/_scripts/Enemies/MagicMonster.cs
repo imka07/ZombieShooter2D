@@ -48,6 +48,7 @@ public class MagicMonster : ZombieAI
             }
             else
             {
+                anim.SetBool("isWalking", false);
                 canAttack = true;
                 Attack();
             }

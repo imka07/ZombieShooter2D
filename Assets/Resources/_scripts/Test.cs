@@ -181,6 +181,10 @@ public class Test : MonoBehaviour
             Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * gameplaySettings.playerMaxMoveSpeed * Time.deltaTime;
             transform.Translate(movement);
         }
+        else
+        {
+            ch_animator.SetFloat("Speed", 0);
+        }
         
         Grenade();
 
