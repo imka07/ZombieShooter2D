@@ -15,8 +15,7 @@ public class gameManager : MonoBehaviour
     public WaveSpawner waveSpawner;
 
     [Header("GameData")]           
-    public int currentPlayerCash;               
-    public int playerStartCash;        
+    public int currentPlayerCash;                      
 
 
     [SerializeField] private GameObject pausePanel, lostPanel, winPanel;
@@ -26,6 +25,9 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI tntText;
     public Text cashText;
     public Toggle musicToggle;
+    public bool[] weaponsToUnlock = new bool[6];
+    public Image[] locks;
+
 
     public UnityEvent onPlayerCashChanged;
 
@@ -44,14 +46,32 @@ public class gameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        bool musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
+        musicToggle.isOn = musicEnabled;
+        SetMusicVolume(musicEnabled ? 1 : 0);
+        currentPlayerCash = PlayerPrefs.GetInt("Cash");
     }
 
     private void Start()
     {
         isGameActive = true;
-        currentPlayerCash = playerStartCash;
         UpdateCashText();
         waveSpawner.waveEnemies = 0;
+
+        for (int i = 0; i < weaponsToUnlock.Length; i++)
+        {
+            if (WeaponShopManager.IsWeaponPurchased(i))
+            {
+                weaponsToUnlock[i] = true;
+                locks[i].enabled = false;
+            }
+            else
+            {
+                weaponsToUnlock[i] = false;
+                locks[i].enabled = true;
+            }
+        }
+
     }
 
     private void UpdateCashText()
@@ -95,23 +115,23 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    public void ToggleMusic()
+    private void ToggleMusic()
     {
-        if (musicToggle.isOn)
-        {
-            // Включаем музыку
-            musicThem.Play();
-        }
-        else
-        {
-            // Выключаем музыку
-            musicThem.Stop();
-        }
+        bool musicEnabled = musicToggle.isOn;
+        SetMusicVolume(musicEnabled ? 1 : 0);
 
+        PlayerPrefs.SetInt("MusicEnabled", musicEnabled ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    private void SetMusicVolume(float volume)
+    {
+        AudioListener.volume = volume;
     }
 
     private void Update()
     {
+        ToggleMusic();
         tntText.text = tntCount.ToString();
         OpenPause();
     }
@@ -126,6 +146,7 @@ public class gameManager : MonoBehaviour
         currentPlayerCash += amount;
         UpdateCashText();
         onPlayerCashChanged.Invoke();
+        PlayerPrefs.SetInt("Cash", currentPlayerCash);
     }
 
     public void TakeCash(int amount)

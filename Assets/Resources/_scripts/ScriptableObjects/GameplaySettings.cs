@@ -47,7 +47,7 @@ public class Weapon
     public AudioClip shootClip;
     public AudioClip reloadClip;
     public Sprite weaponSprite;
-    public float bulletCost;
+    public int weaponPrice;
     public Sprite weaponLootSprite;
     public Vector3 bulletLauncherPos;
     public GameObject projectile;

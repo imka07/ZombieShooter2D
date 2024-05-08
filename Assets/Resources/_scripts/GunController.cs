@@ -60,13 +60,10 @@ public class GunController : MonoBehaviour
                         AssaultRifleShoot();
                         break;
                     case 2:
-                        GrenadeLauncgerShoot();
-                        break;
-                    case 3:
                         ShotGunShoot();
                         break;
-                    case 5:
-                        CrossBowShoot();
+                    case 4:
+                        GrenadeLauncgerShoot();
                         break;
 
                 }
@@ -78,12 +75,24 @@ public class GunController : MonoBehaviour
         Uzi();
         LaserSetting();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeGun(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeGun(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeGun(3);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeGun(4);
-        if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeGun(2);
-        if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeGun(6);
+        for (int i = 0; i < 6; i++)
+        {
+            if (gameManager.instance.weaponsToUnlock[i] == true)
+            {
+                KeyCode keyCode = KeyCode.Alpha1 + i;
+                if (Input.GetKeyDown(keyCode))
+                {
+                    ChangeGun(i);
+                }
+            }
+        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeGun(0);
+
+        //if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeGun(1);
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeGun(3);
+        //if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeGun(3);
+        //if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeGun(4);
+        //if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeGun(5);
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
     }
 
@@ -93,7 +102,7 @@ public class GunController : MonoBehaviour
     {
         if (currentAmmo > 0)
         {
-            if (currentGunIndex == 6)
+            if (currentGunIndex == 5)
             {
                 if (Input.GetMouseButton(0) && canShoot)
                 {
@@ -118,7 +127,7 @@ public class GunController : MonoBehaviour
     {
         if (currentAmmo > 0)
         {
-            if (currentGunIndex == 4)
+            if (currentGunIndex == 3)
             {
                 if (TimeShot <= 0)
                 {
@@ -171,29 +180,7 @@ public class GunController : MonoBehaviour
     }
     private void InstanBulletForShotGun()
     {
-
-        var spawnBullet = Instantiate(bullet, barrel.position, barrel.rotation);
-        //for (int i = 0; i <= 2; i++)
-        //{
-
-        //    var spawnBullet = Instantiate(bullet, barrel.position, barrel.rotation);
-
-        //    switch (i)
-        //    {
-        //        case 0:
-        //            spawnBullet.AddForce(new Vector3(0f, -180f, 0f));
-        //            break;
-        //        case 1:
-        //            spawnBullet.AddForce(new Vector3(0f, 0f, 0f));
-        //            break;
-        //        case 2:
-        //            spawnBullet.AddForce(new Vector3(0f, 180f, 0f));
-        //            break;
-        //    }
-
-        //}
-
-
+        Instantiate(bullet, barrel.position, barrel.rotation);
     }
     private void ShotGunShoot()
     {
@@ -329,7 +316,7 @@ public class GunController : MonoBehaviour
 
     private void DrawTraccer(RaycastHit2D hit)
     {
-        if (currentGunIndex != 6)
+        if (currentGunIndex != 5)
         {
             if (hit && hit.transform.tag != "bunker")
             {
@@ -344,7 +331,7 @@ public class GunController : MonoBehaviour
                 line.SetPosition(1, bulletLauncher.transform.position + bulletLauncher.transform.right * gameplaySettings.weaponSettings.shootDistance);
             }
         }
-        else if(currentGunIndex == 6)
+        else if(currentGunIndex == 5)
         {
             if (hit)
             {
@@ -411,17 +398,6 @@ public class GunController : MonoBehaviour
 
         OnAmmoChange?.Invoke();
     }
-    public void BuyBullet(int gunIndex)
-    {
-        var test = FindObjectOfType<Test>();
-        //if (test.cash >= gameplaySettings.weaponSettings.weapons[gunIndex].bulletCost)
-        //{
-        //    genAmmo += gameplaySettings.weaponSettings.weapons[gunIndex].maxAmmo;
-        //    test.cash -= gameplaySettings.weaponSettings.weapons[gunIndex].bulletCost;
-        //}
-      
-    }
-    
     
     private void CheckAmmo()
     {
@@ -438,10 +414,6 @@ public class GunController : MonoBehaviour
                 {
                     ReloadGun();
                 }
-                //else
-                //{
-                //    ChangeGun(0);
-                //}
 
             }
 

@@ -46,7 +46,6 @@ public class Test : MonoBehaviour
 
     public void ArmorSetActive(bool active)
     {
-
         aura.SetActive(active);
     }
   

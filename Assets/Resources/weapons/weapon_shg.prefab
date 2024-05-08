@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6722b2895ba34544a8fe99b11b2ef21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunIndex: 3
+  gunIndex: 2
   gunTransform: {fileID: 423771755892377118}
   animCurve:
     serializedVersion: 2
