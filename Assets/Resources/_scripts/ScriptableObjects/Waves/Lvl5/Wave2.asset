@@ -17,14 +17,14 @@ MonoBehaviour:
       type: 3}
     spawnAmount: 8
     spawnDelay: 0
-    spawnRate: 1.8
+    spawnRate: 2
   - enemyPrefab: {fileID: 8133178734322347018, guid: 5789fdd104b713c4f929425e70d7572d,
       type: 3}
     spawnAmount: 9
     spawnDelay: 4
-    spawnRate: 1.8
+    spawnRate: 2
   - enemyPrefab: {fileID: 2938175122691779129, guid: f711d69cc0ee1aa4dac239e5ab4e3ed9,
       type: 3}
     spawnAmount: 8
     spawnDelay: 4
-    spawnRate: 1.8
+    spawnRate: 2

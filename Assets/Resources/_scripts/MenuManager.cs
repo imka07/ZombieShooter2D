@@ -25,6 +25,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameplaySettings gameplaySettings;
     AudioSource audioSource;
     [SerializeField] private AudioClip[] clips;
+    [SerializeField] private Image[] weaponLookButton;
 
     private const string MusicPrefKey = "MusicEnabled";
 
@@ -34,17 +35,25 @@ public class MenuManager : MonoBehaviour
         instance = this;
         playerCash = PlayerPrefs.GetInt("Cash");
         weaponCount = PlayerPrefs.GetInt("WeaponCount", 1);
+        WeaponShopManager.PurchaseWeapon(0);
     }
 
     private void Start()
     {
-        WeaponShopManager.PurchaseWeapon(0);
         bool musicEnabled = PlayerPrefs.GetInt(MusicPrefKey, 1) == 1;
         musicToggle.isOn = musicEnabled;
         SetMusicVolume(musicEnabled ? 1 : 0);
         playerCashText.text = playerCash.ToString();
         UpdateWeaponCount();
         audioSource = GetComponent<AudioSource>();
+
+        for (int i = 0; i < gameplaySettings.weaponSettings.weapons.Count; i++)
+        {
+            if (WeaponShopManager.IsWeaponPurchased(i))
+            {
+                weaponLookButton[i].color = new Color32(145, 253, 143, 255);
+            }
+        }
     }
 
     private void Update()
@@ -103,6 +112,7 @@ public class MenuManager : MonoBehaviour
             TakeCash(gameplaySettings.weaponSettings.weapons[weaponID].weaponPrice);
             audioSource.clip = clips[0];
             audioSource.Play();
+            weaponLookButton[weaponID].color = new Color32(145, 253, 143, 255);
         }
     }
 

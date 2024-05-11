@@ -810,7 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
   speed: 155
-  damage: 0
+  damage: 10
   destroyEffect: {fileID: 1540043060174204329, guid: 375a4235491659942b8c95da2750cdbb,
     type: 3}
 --- !u!1 &3481114587048617299
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
   speed: 155
-  damage: 0
+  damage: 10
   destroyEffect: {fileID: 1540043060174204329, guid: 375a4235491659942b8c95da2750cdbb,
     type: 3}
 --- !u!1 &6940995614987887312
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplaySettings: {fileID: 11400000, guid: bac7ea03ddf2d224fa1ca95ad03d9c42, type: 2}
   speed: 155
-  damage: 0
+  damage: 20
   destroyEffect: {fileID: 1540043060174204329, guid: 375a4235491659942b8c95da2750cdbb,
     type: 3}
 --- !u!1 &9151846511569435362

@@ -39,6 +39,7 @@ public class WeaponSettings
 [System.Serializable]
 public class Weapon
 {
+    public int id;
     public string name;
     public float damage = 30;
     public float shootDelay = 0.2f;

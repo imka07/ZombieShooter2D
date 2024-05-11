@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2062958965, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -323,14 +323,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87e580b84a47f24a91e3904a9ddfbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11.5
+  speed: 12
   collisionDamage: 15
-  health: 200
-  maxHealth: 200
+  health: 140
+  maxHealth: 140
   heightAbove: 3.5
   startBetweenAttack: 2
   attackRange: 1
-  damage: 30
+  damage: 20
   cashOnDeath: 45
   distance: 0
   audioSource: {fileID: 256165477460036310}

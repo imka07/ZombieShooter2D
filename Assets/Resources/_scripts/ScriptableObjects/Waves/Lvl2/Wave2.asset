@@ -15,16 +15,16 @@ MonoBehaviour:
   enemySets:
   - enemyPrefab: {fileID: 4777254194347893091, guid: 108430a325e08c14a980d8c5955d7732,
       type: 3}
-    spawnAmount: 4
+    spawnAmount: 5
     spawnDelay: 0
     spawnRate: 2
   - enemyPrefab: {fileID: 2667064324438211130, guid: 77be1b8f1402d744cb067e39258fcedc,
       type: 3}
     spawnAmount: 6
-    spawnDelay: 5
+    spawnDelay: 4
     spawnRate: 2
   - enemyPrefab: {fileID: 96953933307941505, guid: 666b7562ea8286a4c9a73ecbcde9f679,
       type: 3}
-    spawnAmount: 4
-    spawnDelay: 5
+    spawnAmount: 5
+    spawnDelay: 4
     spawnRate: 2

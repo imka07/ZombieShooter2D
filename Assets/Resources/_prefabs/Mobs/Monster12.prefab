@@ -175,15 +175,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  collisionDamage: 17
-  health: 200
-  maxHealth: 200
+  collisionDamage: 15
+  health: 140
+  maxHealth: 140
   heightAbove: 3.5
   startBetweenAttack: 2
   attackRange: 1
   damage: 30
-  cashOnDeath: 50
-  distanse: 0
+  cashOnDeath: 40
+  distance: 0
   audioSource: {fileID: 9140731022359971601}
   hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
     type: 3}
@@ -194,7 +194,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 4daedea3eecf11147935e5fa6a35a575, type: 3}
   - {fileID: 8300000, guid: 964e13dd2b5d0974993ecafcedaef3bf, type: 3}
-  anim: {fileID: 2749182986494103118}
   playerMask:
     serializedVersion: 2
     m_Bits: 16384
@@ -402,7 +401,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -290086433, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
