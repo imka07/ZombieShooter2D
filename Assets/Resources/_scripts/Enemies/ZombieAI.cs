@@ -18,7 +18,7 @@ public class ZombieAI : MonoBehaviour
     public float startBetweenAttack;
     public float attackRange;
     [SerializeField] private float damage;
-    public int cashOnDeath;
+    public float cashOnDeath;
     public float distance;
     bool isWalking;
     protected bool canAttack;
@@ -43,6 +43,7 @@ public class ZombieAI : MonoBehaviour
 
     public static event UnityAction OnDestroyed;
 
+
     public void Init()
     {
         isWalking = true;
@@ -51,6 +52,7 @@ public class ZombieAI : MonoBehaviour
         hudController = Instantiate(hudPrefab, transform).GetComponent<ZombieHud>();
         hudController.transform.localPosition = offset;
         health = maxHealth;
+        cashOnDeath *= gameManager.instance.cashFactor;
     }
 
     public void MoveToBunker()

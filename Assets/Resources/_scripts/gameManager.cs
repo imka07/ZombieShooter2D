@@ -15,9 +15,11 @@ public class gameManager : MonoBehaviour
     public WaveSpawner waveSpawner;
 
     [Header("GameData")]           
-    public int currentPlayerCash;
+    public float currentPlayerCash;
+    public float cashFactor = 1;
     public int maxHeartBoostCount = 5;
-
+    public int maxGrenadeBoostCount = 5;
+    public int maxCashBoostCount = 5;
 
     [SerializeField] private GameObject pausePanel, lostPanel, winPanel;
     public AudioSource musicThem;
@@ -46,11 +48,12 @@ public class gameManager : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         instance = this;
         bool musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
         musicToggle.isOn = musicEnabled;
         SetMusicVolume(musicEnabled ? 1 : 0);
-        currentPlayerCash = PlayerPrefs.GetInt("Cash");
+        currentPlayerCash = PlayerPrefs.GetFloat("Cash");
     }
 
     private void Start()
@@ -82,6 +85,27 @@ public class gameManager : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < maxGrenadeBoostCount; i++)
+        {
+            if (BoostShopManager.IsGrenadePurchased(i))
+            {
+                AddGrenadeAmount(1);
+            }
+        }
+
+        for (int i = 0; i < maxCashBoostCount; i++)
+        {
+            if (BoostShopManager.IsCashBoostPurchased(i))
+            {
+                cashFactor += 0.5f;
+            }
+        }
+
+    }
+
+    private void AddGrenadeAmount(int amount)
+    {
+        tntCount += amount;
     }
 
     private void UpdateCashText()
@@ -151,15 +175,15 @@ public class gameManager : MonoBehaviour
         click.Play();
     }
 
-    public void AddCash(int amount)
+    public void AddCash(float amount)
     {
         currentPlayerCash += amount;
         UpdateCashText();
         onPlayerCashChanged.Invoke();
-        PlayerPrefs.SetInt("Cash", currentPlayerCash);
+        PlayerPrefs.SetFloat("Cash", currentPlayerCash);
     }
 
-    public void TakeCash(int amount)
+    public void TakeCash(float amount)
     {
         currentPlayerCash -= amount;
         UpdateCashText();
