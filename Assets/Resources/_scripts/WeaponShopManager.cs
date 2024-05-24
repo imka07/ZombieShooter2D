@@ -1,4 +1,3 @@
-// Скрипт для управления магазином
 using UnityEngine;
 
 public class WeaponShopManager : MonoBehaviour

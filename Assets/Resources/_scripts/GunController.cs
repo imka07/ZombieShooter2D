@@ -86,13 +86,6 @@ public class GunController : MonoBehaviour
                 }
             }
         }
-        //if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeGun(0);
-
-        //if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeGun(1);
-        //if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeGun(3);
-        //if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeGun(3);
-        //if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeGun(4);
-        //if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeGun(5);
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
     }
 

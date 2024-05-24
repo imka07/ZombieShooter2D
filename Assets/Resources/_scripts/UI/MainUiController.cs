@@ -169,8 +169,6 @@ public class MainUiController : MonoBehaviour
         speedUpCoroutine = null;
     }
 
-
-    GunController gc;
     private void UpdateHp(float maxHp, float currentHp)
     {
         hpFill.fillAmount = currentHp / maxHp;

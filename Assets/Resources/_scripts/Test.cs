@@ -34,13 +34,13 @@ public class Test : MonoBehaviour
     public GameObject Dron;
     public GameObject dronSpawn;
 
+
     void Start()
     {
         MUC = FindObjectOfType<MainUiController>();
         rb = GetComponent<Rigidbody2D>();
         ch_animator = GetComponent<Animator>();
         ch_animator.SetFloat("Fast", 1f);
-        health = maxHealth;
         ch_sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
@@ -126,12 +126,11 @@ public class Test : MonoBehaviour
         }
     }
 
-    public void Heal(float heal)
+    public void HealtChange(float ammount)
     {
-        // это у нас аптека повышается жизни
-        FindObjectOfType<Base>().Heal(50);
-        health = Mathf.Min(health + heal, maxHealth);
+        maxHealth = Mathf.Min(maxHealth + ammount);
         OnHpChange?.Invoke(maxHealth, health);
+        health = maxHealth;
     }
 
     public void StopSpeedUp()
@@ -259,12 +258,6 @@ public class Test : MonoBehaviour
             MUC.StartArmor();
         }
        
-
-        if (collision.tag == "Medicine")
-        {
-            Heal(50);
-            Destroy(collision.gameObject);
-        }
       
     }
 }

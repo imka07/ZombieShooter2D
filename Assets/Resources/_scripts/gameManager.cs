@@ -15,7 +15,8 @@ public class gameManager : MonoBehaviour
     public WaveSpawner waveSpawner;
 
     [Header("GameData")]           
-    public int currentPlayerCash;                      
+    public int currentPlayerCash;
+    public int maxHeartBoostCount = 5;
 
 
     [SerializeField] private GameObject pausePanel, lostPanel, winPanel;
@@ -69,6 +70,15 @@ public class gameManager : MonoBehaviour
             {
                 weaponsToUnlock[i] = false;
                 locks[i].enabled = true;
+            }
+        }
+
+        for (int i = 0; i < maxHeartBoostCount; i++)
+        {
+            if (BoostShopManager.IsHeartPurchased(i))
+            {
+                var player = FindObjectOfType<Test>();
+                player.HealtChange(20);
             }
         }
 

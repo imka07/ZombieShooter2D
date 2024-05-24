@@ -116,6 +116,16 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public int heartIndex = 0;
+    public void BuyHeartBoost()
+    {
+        heartIndex = Math.Clamp(heartIndex, 0, 3);
+        heartIndex++;
+        BoostShopManager.PurchaseHeartBoost(heartIndex);
+        audioSource.clip = clips[0];
+        audioSource.Play();
+    }
+
     private void UpdateWeaponCount()
     {
         weaponCountText.text = weaponCount.ToString() + "/6";
