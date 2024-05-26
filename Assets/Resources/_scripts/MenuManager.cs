@@ -41,6 +41,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Image[] weaponLookButton;
     [SerializeField] private GameplaySettings gameplaySettings;
     public Text weaponCountText, weaponCostText, buyButtonText, boostCountText;
+    public Text heartButtonText, grenadeButtonText, cashButtonText;
     int weaponID = 0;
     public int weaponCount, boostCount;
     public GameObject buyButton;
@@ -135,6 +136,43 @@ public class MenuManager : MonoBehaviour
     private void Update()
     {
         ToggleMusic();
+        BoostButtons();
+    }
+
+    private void BoostButtons()
+    {
+        if (playerCash < HeartPrice)
+        {
+            heartButtonText.text = "Недостаточно";
+            heartButtonText.color = new Color32(217, 79, 64, 255);
+        }
+        else
+        {
+            heartButtonText.text = "Купить";
+            heartButtonText.color = new Color32(58, 115, 93, 255);
+        }
+
+        if (playerCash < GrenadePrice)
+        {
+            grenadeButtonText.text = "Недостаточно";
+            grenadeButtonText.color = new Color32(217, 79, 64, 255);
+        }
+        else
+        {
+            grenadeButtonText.text = "Купить";
+            grenadeButtonText.color = new Color32(58, 115, 93, 255);
+        }
+        if (playerCash < CashPrice)
+        {
+            cashButtonText.text = "Недостаточно";
+            cashButtonText.color = new Color32(217, 79, 64, 255);
+        }
+        else
+        {
+            heartButtonText.text = "Купить";
+            heartButtonText.color = new Color32(58, 115, 93, 255);
+        }
+
     }
 
     public void ChangeIndex(int index)
@@ -243,6 +281,7 @@ public class MenuManager : MonoBehaviour
             audioSource.clip = clips[0];
             audioSource.Play();
         }
+
     }
 
     public void BuyCashBoost()
@@ -266,6 +305,7 @@ public class MenuManager : MonoBehaviour
             audioSource.clip = clips[0];
             audioSource.Play();
         }
+
     }
 
 
