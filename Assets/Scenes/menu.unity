@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11899,6 +11899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MissionPanel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752541269511656152, guid: 3f057780bf07ad9458e7a19386e5f275,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u041C\u0438\u043B\u043B\u0438\u043E\u043D\u0435\u0440 "
       objectReference: {fileID: 0}
     - target: {fileID: 7319104489433474002, guid: 3f057780bf07ad9458e7a19386e5f275,
         type: 3}
