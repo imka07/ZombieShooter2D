@@ -16,6 +16,7 @@ public class gameManager : MonoBehaviour
 
     [Header("GameData")]           
     public float currentPlayerCash;
+    public float totalPlayerCash;
     public float cashFactor = 1;
     public int maxHeartBoostCount = 5;
     public int maxGrenadeBoostCount = 5;
@@ -53,7 +54,7 @@ public class gameManager : MonoBehaviour
         bool musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
         musicToggle.isOn = musicEnabled;
         SetMusicVolume(musicEnabled ? 1 : 0);
-        currentPlayerCash = PlayerPrefs.GetFloat("Cash");
+        totalPlayerCash = PlayerPrefs.GetFloat("Cash");
     }
 
     private void Start()
@@ -180,7 +181,9 @@ public class gameManager : MonoBehaviour
         currentPlayerCash += amount;
         UpdateCashText();
         onPlayerCashChanged.Invoke();
-        PlayerPrefs.SetFloat("Cash", currentPlayerCash);
+        totalPlayerCash += currentPlayerCash;
+        PlayerPrefs.SetFloat("Cash", totalPlayerCash);
+        PlayerPrefs.Save();
     }
 
     public void TakeCash(float amount)

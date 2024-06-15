@@ -156,21 +156,20 @@ public class GunController : MonoBehaviour
         DrawTraccer(hit); // отрисовка трассера
         currentAmmo--;
         OnAmmoChange?.Invoke();
-
         CheckAmmo();
     }
-    private void CrossBowShoot()
-    {
-        CinemachineShaker.Instance.Shaker(1, 0.2f);
-        PlayShootSound(gameplaySettings.weaponSettings.weapons[currentGunIndex].shootClip);
-        StartCoroutine(ShootDelay(gameplaySettings.weaponSettings.weapons[currentGunIndex].shootDelay));
-        Instantiate(gameplaySettings.weaponSettings.weapons[currentGunIndex].arrow, bulletLauncher.transform.position, transform.rotation);
-        currentAmmo--;
-        OnAmmoChange?.Invoke();
+    //private void CrossBowShoot()
+    //{
+    //    CinemachineShaker.Instance.Shaker(1, 0.2f);
+    //    PlayShootSound(gameplaySettings.weaponSettings.weapons[currentGunIndex].shootClip);
+    //    StartCoroutine(ShootDelay(gameplaySettings.weaponSettings.weapons[currentGunIndex].shootDelay));
+    //    Instantiate(gameplaySettings.weaponSettings.weapons[currentGunIndex].arrow, bulletLauncher.transform.position, transform.rotation);
+    //    currentAmmo--;
+    //    OnAmmoChange?.Invoke();
 
-        CheckAmmo();
+    //    CheckAmmo();
 
-    }
+    //}
     private void InstanBulletForShotGun()
     {
         Instantiate(bullet, barrel.position, barrel.rotation);

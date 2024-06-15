@@ -10,9 +10,9 @@ public class ZombieAI : MonoBehaviour
 {
     [Header("Zombie Stats")]
     public float speed;
-    [SerializeField] private float collisionDamage;
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
+    public float collisionDamage;
+    public float health;
+    public float maxHealth;
     public float heightAbove;
     protected float timeBetweenAttack;
     public float startBetweenAttack;
