@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7727341889633641298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3053352744604085019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3811457009496427937}
+  m_Layer: 10
+  m_Name: EnemySpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3811457009496427937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053352744604085019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.93, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7727341888557052271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7727341888201640909
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,13 +177,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 4.7, y: 4.7, z: 4.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7727341889952619602}
   - {fileID: 7727341888901662624}
   - {fileID: 7727341889560924761}
   - {fileID: 2163984518078502536}
+  - {fileID: 3811457009496427937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3384782953255360175
@@ -205,7 +237,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.035663784, y: 0.6668674}
@@ -280,13 +312,23 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 4daedea3eecf11147935e5fa6a35a575, type: 3}
   - {fileID: 8300000, guid: 964e13dd2b5d0974993ecafcedaef3bf, type: 3}
+  - {fileID: 8300000, guid: 56f216d4c7eb7ee4491b13b9df3a1d54, type: 3}
   playerMask:
     serializedVersion: 2
     m_Bits: 16384
   bunker:
     serializedVersion: 2
     m_Bits: 4096
-  groundedEffect: {fileID: 3788661483660764043}
+  spawnEnemies:
+  - {fileID: 1433602116043693599, guid: db148d9ce685ac348a3f357d37453baa, type: 3}
+  - {fileID: 8239245812400362537, guid: da87870c43885da43b5816cfd4d5ec9e, type: 3}
+  - {fileID: 5600347076844282563, guid: 756dbd0161dcec748b95db3fcb84c48b, type: 3}
+  - {fileID: 9009675955799159387, guid: d21efaa207e26914794fa3e010b7c5bf, type: 3}
+  - {fileID: 9159621025241942847, guid: 2148be545aabd1c4fa1390327151b0ff, type: 3}
+  - {fileID: 5600347076844282563, guid: 43001e06f1bf64f9c82beb2b43156299, type: 3}
+  spawnPosition: {fileID: 3811457009496427937}
+  spawnCount: 0
+  maxSpawnCount: 3
 --- !u!82 &2027300645361777607
 AudioSource:
   m_ObjectHideFlags: 0

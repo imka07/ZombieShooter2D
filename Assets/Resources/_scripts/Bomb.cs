@@ -8,43 +8,32 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameplaySettings gameplaySettings;
     private float damage;
     [SerializeField] private GameObject explosionEffect;
+    public LayerMask playerMask;
     void Start()
     {
-        radius = 20f;
-        damage = 100f;
+        radius = 5;
+        damage = 10;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayerDamage()
     {
-        
-    }
-    private void forZombie()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, gameplaySettings.zombie);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, playerMask);
         if (colliders.Length == 0)
             return;
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            colliders[i].GetComponent<ZombieAI>().TakeDamage(damage);
+            colliders[i].GetComponent<Test>().TakeDamage(damage);
 
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
-        if (explosionEffect) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        if (collision.tag == "zombie")
-        {
-           
-            forZombie();
+        if (collision.tag != "MapEnd")
+        { 
+            if (explosionEffect) Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            PlayerDamage();
+            Destroy(gameObject);
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       
-        if (explosionEffect) Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
 }

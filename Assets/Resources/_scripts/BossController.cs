@@ -4,22 +4,74 @@ using UnityEngine;
 
 public class BossController : ZombieAI
 {
-    public ParticleSystem groundedEffect;
+    [SerializeField] private GameObject[] spawnEnemies;
+    [SerializeField] private Transform spawnPosition;
+    [SerializeField] private int spawnCount, maxSpawnCount;
+
+
+    [SerializeField] private GameObject meteorPrefabs;
+    public float spawnY;
 
     void Start()
     {
+        canAttack = true;
         Init();
-        // Передаем ссылку на Particle System в StateMachineBehaviour
-        var bossFalls = anim.GetBehaviour<BoosFalls>();
-        bossFalls.groundedEffect = groundedEffect;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void Update()
     {
-        if (collision.gameObject.tag == "Player")
+        BossAttackMoveSets();
+    }
+
+    private void BossAttackMoveSets()
+    {
+        StartCoroutine(MeteorSpawnMoveSet());
+    }
+
+
+    private IEnumerator EnemySpawnMoveSet()
+    {
+        if (canAttack)
         {
-            PlayClips(0);
-            collision.gameObject.GetComponent<Test>().TakeDamage(collisionDamage);
+            if (timeBetweenAttack <= 0)
+            {
+                if (spawnCount < maxSpawnCount)
+                {
+                    var rand = Random.Range(0, spawnEnemies.Length);
+                    PlayClips(1);
+                    anim.SetTrigger("attack");
+                    Instantiate(spawnEnemies[rand], spawnPosition.position, Quaternion.identity);
+                    timeBetweenAttack = startBetweenAttack;
+                    spawnCount++;
+                }
+            }
+            else
+            {
+                timeBetweenAttack -= Time.deltaTime;
+            }
         }
+        yield return null;
+    }
+
+
+    private IEnumerator MeteorSpawnMoveSet()
+    {
+        if (canAttack)
+        {
+            if (timeBetweenAttack <= 0)
+            {
+                var rand = Random.Range(0, 100);
+                var delay = 1;
+                PlayClips(1);
+                Instantiate(meteorPrefabs, new Vector2(rand, spawnY), Quaternion.identity);
+                timeBetweenAttack = delay;
+            }
+            else
+            {
+                timeBetweenAttack -= Time.deltaTime;
+            }
+        }
+        yield return null;
     }
 }
