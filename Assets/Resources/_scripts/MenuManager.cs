@@ -8,11 +8,12 @@ using System.ComponentModel;
 using System.Threading;
 using TMPro;
 using System;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager instance;
-
+    [SerializeField] private Button[] levelButtons;
 
     [Header("Player Cash")]
     private float playerCash;
@@ -61,8 +62,22 @@ public class MenuManager : MonoBehaviour
     {
         //PlayerPrefs.DeleteAll();
         instance = this;
-        StartData();
         WeaponShopManager.PurchaseWeapon(0);
+        StartData();
+
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            int level = i + 1;
+            if (PlayerPrefs.GetInt("Level_" + level, level == 1 ? 1 : 0) == 1) // Default to unlocked if it's the first level
+            {
+                levelButtons[i].interactable = true;
+                levelButtons[i].onClick.AddListener(() => ToGame(level));
+            }
+            else
+            {
+                levelButtons[i].interactable = false;
+            }
+        }
     }
 
  
@@ -343,10 +358,10 @@ public class MenuManager : MonoBehaviour
         AudioListener.volume = volume;
     }
 
-    public void ToGame(int scene)
+    public void ToGame(int level)
     {
         click.Play();
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene("Level" + level);
     }
 
 }

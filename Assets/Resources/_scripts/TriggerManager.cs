@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class TriggerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    BossController bossController;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.tag == "Player")
+        bossController = FindObjectOfType<BossController>();
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !bossController.isAttacking) // Проверка столкновения с игроком
         {
-            prefab.SetActive(true);
+            bossController.StartAttackiing();
         }
     }
 }

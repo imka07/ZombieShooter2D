@@ -126,16 +126,24 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    public void CompleteLevel(int currentLevel)
+    {
+        int nextLevel = currentLevel + 1;
+        PlayerPrefs.SetInt("Level_" + nextLevel, 1); // Unlock the next level
+        PlayerPrefs.Save();
+    }
+
     public void GameOver()
     {
         isGameActive = false;
         lostPanel.gameObject.SetActive(true);
     }
 
-    private void GameWin()
+    public void GameWin()
     {
         isGameActive = false;
         winPanel.gameObject.SetActive(true);
+        CompleteLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnEnemyDestroyed()

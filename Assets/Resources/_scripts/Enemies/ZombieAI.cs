@@ -17,7 +17,7 @@ public class ZombieAI : MonoBehaviour
     protected float timeBetweenAttack;
     public float startBetweenAttack;
     public float attackRange;
-    [SerializeField] private float damage;
+    public float damage;
     public float cashOnDeath;
     public float distance;
     bool isWalking;
@@ -35,14 +35,13 @@ public class ZombieAI : MonoBehaviour
     protected Animator anim;
     public LayerMask playerMask;
     public LayerMask bunker;
- 
 
+    public bool isBoss = false;
 
     public delegate void OnHealthChangeHandler(float maxHP, float currentHP);
     public OnHealthChangeHandler OnHealthChange;
 
     public static event UnityAction OnDestroyed;
-
 
     public void Init()
     {
@@ -128,6 +127,8 @@ public class ZombieAI : MonoBehaviour
         OnDestroyed.Invoke();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
+
+        if (isBoss) gameManager.instance.GameWin();
     }
 
 }

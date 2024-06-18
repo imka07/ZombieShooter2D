@@ -12,7 +12,6 @@ public class ZombieHud : MonoBehaviour
 
     void Start()
     {
-       
         enemy();
     }
     private void enemy()

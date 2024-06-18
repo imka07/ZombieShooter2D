@@ -292,18 +292,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492666d1aaa8c47c1b2080a4f45140e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  collisionDamage: 50
+  speed: 4
+  collisionDamage: 5
   health: 2500
   maxHealth: 2500
   heightAbove: 0
-  startBetweenAttack: 0
+  startBetweenAttack: 2
   attackRange: 3
   damage: 50
-  cashOnDeath: 0
+  cashOnDeath: 10000
   distance: 0
   audioSource: {fileID: 2027300645361777607}
-  hudPrefab: {fileID: 2665917515370920056, guid: 857b15ac0b63cb34c9a53a9cb167ce64,
+  hudPrefab: {fileID: 7154706799940385940, guid: b5cc1dffdf4e58d40b7b7f8c67b1a6b5,
     type: 3}
   offset: {x: 0, y: 2.1, z: 0}
   deathParticles: {fileID: 782821109722140469, guid: 6a50e11b869e44d359cde86757c5b9b1,
@@ -319,16 +319,19 @@ MonoBehaviour:
   bunker:
     serializedVersion: 2
     m_Bits: 4096
+  isBoss: 1
   spawnEnemies:
   - {fileID: 1433602116043693599, guid: db148d9ce685ac348a3f357d37453baa, type: 3}
   - {fileID: 8239245812400362537, guid: da87870c43885da43b5816cfd4d5ec9e, type: 3}
-  - {fileID: 5600347076844282563, guid: 756dbd0161dcec748b95db3fcb84c48b, type: 3}
-  - {fileID: 9009675955799159387, guid: d21efaa207e26914794fa3e010b7c5bf, type: 3}
+  - {fileID: 2938175122691779129, guid: f711d69cc0ee1aa4dac239e5ab4e3ed9, type: 3}
   - {fileID: 9159621025241942847, guid: 2148be545aabd1c4fa1390327151b0ff, type: 3}
-  - {fileID: 5600347076844282563, guid: 43001e06f1bf64f9c82beb2b43156299, type: 3}
+  - {fileID: 6490799926618088897, guid: eed26d9bbfc4c97498e43126828eb2da, type: 3}
   spawnPosition: {fileID: 3811457009496427937}
-  spawnCount: 0
-  maxSpawnCount: 3
+  meteorPrefabs: {fileID: 2831369044087099431, guid: 0425ca5329c9a25479de13366946ec99,
+    type: 3}
+  spawnY: 7
+  restTime: 2
+  rotationModifier: 0
 --- !u!82 &2027300645361777607
 AudioSource:
   m_ObjectHideFlags: 0
