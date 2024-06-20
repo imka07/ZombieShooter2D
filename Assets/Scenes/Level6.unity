@@ -583,7 +583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &352161335
 Transform:
   m_ObjectHideFlags: 0
@@ -2520,7 +2520,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.51789, y: -4.15097, z: -10}
+  m_LocalPosition: {x: 26.507143, y: -4.15097, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4469,6 +4469,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 804018919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683918829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 242665727756671189, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5098403970246535948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1690633666
 GameObject:
   m_ObjectHideFlags: 0
@@ -11432,6 +11444,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50.22412
       objectReference: {fileID: 0}
+    - target: {fileID: 242665727756671189, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6605023095499751471}
+    - target: {fileID: 242665727756671189, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 884831406099399333, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11742,6 +11764,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5668940750009598172, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5679749408746718668, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11806,6 +11833,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285738489484563817, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285738489484563817, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6390559208191734681, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
@@ -11872,6 +11909,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 804018922}
+    - target: {fileID: 7149993846747607066, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149993846747607066, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149993846747607066, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8425373052311580996, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
       propertyPath: m_Camera
@@ -16950,6 +17002,11 @@ PrefabInstance:
       propertyPath: musicToggle
       value: 
       objectReference: {fileID: 5098403970246535949}
+    - target: {fileID: 5591586675342230640, guid: c89d30e5ec15c4d64bc723911125695f,
+        type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 1683918829}
     - target: {fileID: 5591586675342230640, guid: c89d30e5ec15c4d64bc723911125695f,
         type: 3}
       propertyPath: locks.Array.size

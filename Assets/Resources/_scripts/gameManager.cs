@@ -31,6 +31,7 @@ public class gameManager : MonoBehaviour
     public Toggle musicToggle;
     public bool[] weaponsToUnlock = new bool[6];
     public Image[] locks;
+    public Slider volumeSlider;
 
 
     public UnityEvent onPlayerCashChanged;
@@ -55,6 +56,16 @@ public class gameManager : MonoBehaviour
         musicToggle.isOn = musicEnabled;
         SetMusicVolume(musicEnabled ? 1 : 0);
         totalPlayerCash = PlayerPrefs.GetFloat("Cash");
+
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        }
+        else
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        }
     }
 
     private void Start()
@@ -82,7 +93,7 @@ public class gameManager : MonoBehaviour
             if (BoostShopManager.IsHeartPurchased(i))
             {
                 var player = FindObjectOfType<Test>();
-                player.HealtChange(20);
+                player.HealtChange(50);
             }
         }
 
@@ -130,6 +141,7 @@ public class gameManager : MonoBehaviour
     {
         int nextLevel = currentLevel + 1;
         PlayerPrefs.SetInt("Level_" + nextLevel, 1); // Unlock the next level
+        PlayerPrefs.SetInt("LastOpenedLevel", nextLevel); // Save the last opened level
         PlayerPrefs.Save();
     }
 
@@ -137,6 +149,10 @@ public class gameManager : MonoBehaviour
     {
         isGameActive = false;
         lostPanel.gameObject.SetActive(true);
+
+        totalPlayerCash += currentPlayerCash;
+        PlayerPrefs.SetFloat("Cash", totalPlayerCash);
+        PlayerPrefs.Save();
     }
 
     public void GameWin()
@@ -144,6 +160,10 @@ public class gameManager : MonoBehaviour
         isGameActive = false;
         winPanel.gameObject.SetActive(true);
         CompleteLevel(SceneManager.GetActiveScene().buildIndex);
+
+        totalPlayerCash += currentPlayerCash;
+        PlayerPrefs.SetFloat("Cash", totalPlayerCash);
+        PlayerPrefs.Save();
     }
 
     public void OnEnemyDestroyed()
@@ -189,9 +209,6 @@ public class gameManager : MonoBehaviour
         currentPlayerCash += amount;
         UpdateCashText();
         onPlayerCashChanged.Invoke();
-        totalPlayerCash += currentPlayerCash;
-        PlayerPrefs.SetFloat("Cash", totalPlayerCash);
-        PlayerPrefs.Save();
     }
 
     public void TakeCash(float amount)
@@ -209,6 +226,13 @@ public class gameManager : MonoBehaviour
         pausePanel.SetActive(false);
         player.CanShoot(true);
         isGameActive = true;
+    }
+
+    public void ChangeVolume()
+    {
+        musicThem.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        PlayerPrefs.Save();
     }
 
     public void ToMenu()

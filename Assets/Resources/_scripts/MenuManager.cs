@@ -9,6 +9,7 @@ using System.Threading;
 using TMPro;
 using System;
 using static Cinemachine.DocumentationSortingAttribute;
+using UnityEngine.Rendering;
 
 public class MenuManager : MonoBehaviour
 {
@@ -55,6 +56,9 @@ public class MenuManager : MonoBehaviour
     private const string MusicPrefKey = "MusicEnabled";
     AudioSource audioSource;
     [SerializeField] private AudioClip[] clips;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioSource music;
+
     public AudioSource click;
     public Toggle musicToggle;
 
@@ -104,6 +108,16 @@ public class MenuManager : MonoBehaviour
         bool musicEnabled = PlayerPrefs.GetInt(MusicPrefKey, 1) == 1;
         musicToggle.isOn = musicEnabled;
         SetMusicVolume(musicEnabled ? 1 : 0);
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        }
+        else
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        }
+
 
         // Инициализация панелей бустов
         for (int i = 0; i < heartBoostPanels.Length; i++)
@@ -156,39 +170,24 @@ public class MenuManager : MonoBehaviour
 
     private void BoostButtons()
     {
-        if (playerCash < HeartPrice)
-        {
-            heartButtonText.text = "Недостаточно";
-            heartButtonText.color = new Color32(217, 79, 64, 255);
-        }
-        else
-        {
-            heartButtonText.text = "Купить";
-            heartButtonText.color = new Color32(58, 115, 93, 255);
-        }
-
-        if (playerCash < GrenadePrice)
-        {
-            grenadeButtonText.text = "Недостаточно";
-            grenadeButtonText.color = new Color32(217, 79, 64, 255);
-        }
-        else
-        {
-            grenadeButtonText.text = "Купить";
-            grenadeButtonText.color = new Color32(58, 115, 93, 255);
-        }
-        if (playerCash < CashPrice)
-        {
-            cashButtonText.text = "Недостаточно";
-            cashButtonText.color = new Color32(217, 79, 64, 255);
-        }
-        else
-        {
-            heartButtonText.text = "Купить";
-            heartButtonText.color = new Color32(58, 115, 93, 255);
-        }
-
+        UpdateButton(heartButtonText, playerCash > HeartPrice);
+        UpdateButton(grenadeButtonText, playerCash > GrenadePrice);
+        UpdateButton(cashButtonText, playerCash >= CashPrice);
     }
+
+    private void UpdateButton(Text buttonText, bool canAfford)
+    {
+        if (canAfford)
+        {
+            buttonText.text = "Купить";
+            buttonText.color = new Color32(58, 115, 93, 255);
+        }
+        else
+        {
+            buttonText.color = new Color32(217, 79, 64, 255);
+        }
+    }
+
 
     public void ChangeIndex(int index)
     {
@@ -203,17 +202,7 @@ public class MenuManager : MonoBehaviour
         {
             buyButton.SetActive(true);
         }
-
-        if (playerCash < gameplaySettings.weaponSettings.weapons[weaponID].weaponPrice)
-        {
-            buyButtonText.text = "Недостаточно";
-            buyButtonText.color = new Color32(217, 79, 64, 255);
-        }
-        else
-        {
-            buyButtonText.text = "Купить";
-            buyButtonText.color = new Color32(58, 115, 93, 255);
-        }
+        UpdateButton(buyButtonText, playerCash > gameplaySettings.weaponSettings.weapons[weaponID].weaponPrice);
     }
 
     public void TakeCash(int amount)
@@ -299,6 +288,16 @@ public class MenuManager : MonoBehaviour
 
     }
 
+
+    public void PlayGame()
+    {
+        // Получить номер последнего открытого уровня, по умолчанию 1 (первый уровень)
+        int lastOpenedLevel = PlayerPrefs.GetInt("LastOpenedLevel", 1);
+
+        // Загрузить последний открытый уровень
+        SceneManager.LoadScene("Level" + lastOpenedLevel);
+    }
+
     public void BuyCashBoost()
     {
         if (playerCash >= CashPrice)
@@ -330,7 +329,7 @@ public class MenuManager : MonoBehaviour
     }
     private void UpdateBoostCount()
     {
-        boostCountText.text = boostCount.ToString() + "/6";
+        boostCountText.text = boostCount.ToString() + "/12";
     }
     private void UpdateCashAmmount()
     {
@@ -350,6 +349,13 @@ public class MenuManager : MonoBehaviour
         SetMusicVolume(musicEnabled ? 1 : 0);
 
         PlayerPrefs.SetInt(MusicPrefKey, musicEnabled ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public void ChangeVolume()
+    {
+        music.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
         PlayerPrefs.Save();
     }
 

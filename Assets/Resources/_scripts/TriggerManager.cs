@@ -17,6 +17,7 @@ public class TriggerManager : MonoBehaviour
         if (other.CompareTag("Player") && !bossController.isAttacking) // Проверка столкновения с игроком
         {
             bossController.StartAttackiing();
+            Destroy(gameObject);
         }
     }
 }

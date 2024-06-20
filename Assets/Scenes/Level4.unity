@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1138,6 +1138,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &414830038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 242665727756671189, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5098403970246535948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &504476594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2727,7 +2739,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.048895, y: 5.66954, z: -10}
+  m_LocalPosition: {x: -18.045204, y: 5.66955, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13298,6 +13310,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 242665727756671189, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6605023095499751471}
     - target: {fileID: 884831406099399333, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -13598,6 +13615,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ToMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5668940750009598172, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5679749408746718668, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -13662,6 +13684,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285738489484563817, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285738489484563817, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6390559208191734681, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
@@ -13728,6 +13760,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 804018922}
+    - target: {fileID: 7149993846747607066, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149993846747607066, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149993846747607066, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8425373052311580996, guid: ded5a51aa87f649fd8d9200bf93a2cbc,
         type: 3}
       propertyPath: m_Camera
@@ -18783,9 +18830,9 @@ PrefabInstance:
       objectReference: {fileID: 5098403970246535949}
     - target: {fileID: 5591586675342230640, guid: c89d30e5ec15c4d64bc723911125695f,
         type: 3}
-      propertyPath: locks.Array.size
-      value: 6
-      objectReference: {fileID: 0}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 414830038}
     - target: {fileID: 5591586675342230640, guid: c89d30e5ec15c4d64bc723911125695f,
         type: 3}
       propertyPath: locks.Array.data[0]

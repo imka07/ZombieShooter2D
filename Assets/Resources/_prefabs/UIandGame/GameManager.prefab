@@ -52,7 +52,11 @@ MonoBehaviour:
   currentWave: 0
   waveSpawner: {fileID: 1047089084506563356}
   currentPlayerCash: 0
-  playerStartCash: 0
+  totalPlayerCash: 0
+  cashFactor: 1
+  maxHeartBoostCount: 5
+  maxGrenadeBoostCount: 5
+  maxCashBoostCount: 5
   pausePanel: {fileID: 0}
   lostPanel: {fileID: 0}
   winPanel: {fileID: 0}
@@ -62,6 +66,15 @@ MonoBehaviour:
   tntText: {fileID: 0}
   cashText: {fileID: 0}
   musicToggle: {fileID: 0}
+  weaponsToUnlock: 000000000000
+  locks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  volumeSlider: {fileID: 0}
   onPlayerCashChanged:
     m_PersistentCalls:
       m_Calls: []

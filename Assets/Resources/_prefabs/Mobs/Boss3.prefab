@@ -331,6 +331,7 @@ MonoBehaviour:
     type: 3}
   spawnY: 7
   restTime: 2
+  isAttacking: 0
   rotationModifier: 0
 --- !u!82 &2027300645361777607
 AudioSource:
