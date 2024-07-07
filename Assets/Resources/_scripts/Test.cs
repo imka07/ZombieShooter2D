@@ -87,6 +87,12 @@ public class Test : MonoBehaviour
             ch_sprites[i].color = Color.white;
         }
     }
+
+    public void FullHp()
+    {
+        health = Mathf.Max(health + maxHealth, 0);
+        OnHpChange?.Invoke(maxHealth, health);
+    }
     
     //public void HealButton()
     //{
@@ -183,8 +189,8 @@ public class Test : MonoBehaviour
         {
             ch_animator.SetFloat("Speed", 0);
         }
-        
-        Grenade();
+
+        if (gameManager.instance.isGameActive) Grenade();
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {

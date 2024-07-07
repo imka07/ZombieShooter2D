@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
+using YG;
 
 public class gameManager : MonoBehaviour
 {               
@@ -41,11 +42,13 @@ public class gameManager : MonoBehaviour
     private void OnEnable()
     {
         waveSpawner.OnEnemyRemoved.AddListener(OnEnemyDestroyed);
+        YandexGame.CloseVideoEvent += Rewarded;
     }
 
     private void OnDisable()
     {
         waveSpawner.OnEnemyRemoved.RemoveListener(OnEnemyDestroyed);
+        YandexGame.CloseVideoEvent -= Rewarded;
     }
 
     private void Awake()
@@ -137,6 +140,40 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    public void Rewarded(int id)
+    {
+        if (id == 0)
+        {
+            DoubleMoney();
+            totalPlayerCash += currentPlayerCash;
+            PlayerPrefs.SetFloat("Cash", totalPlayerCash);
+            PlayerPrefs.Save();
+            ToMenu();
+        }
+
+        if (id == 1)
+        {
+            Revive();
+        }
+    }
+
+    public void DoubleMoney()
+    {
+        currentPlayerCash *= 2;
+        UpdateCashText();
+        onPlayerCashChanged.Invoke();
+    }
+
+    public void Revive()
+    {
+        isGameActive = true;
+        lostPanel.gameObject.SetActive(false);
+
+        var player = FindObjectOfType<Test>();
+        player.FullHp();
+    }
+
+
     public void CompleteLevel(int currentLevel)
     {
         int nextLevel = currentLevel + 1;
@@ -154,6 +191,8 @@ public class gameManager : MonoBehaviour
         PlayerPrefs.SetFloat("Cash", totalPlayerCash);
         PlayerPrefs.Save();
     }
+
+
 
     public void GameWin()
     {

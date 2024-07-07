@@ -24,7 +24,6 @@ public class Base : MonoBehaviour
         if(health <= 0)
         {
             gameManager.instance.GameOver();
-            Destroy(gameObject);
         }
     }
     public void Heal(float heal)

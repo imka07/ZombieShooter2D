@@ -10,6 +10,7 @@ using TMPro;
 using System;
 using static Cinemachine.DocumentationSortingAttribute;
 using UnityEngine.Rendering;
+using YG;
 
 public class MenuManager : MonoBehaviour
 {
@@ -162,6 +163,25 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    private void OnEnable() => YandexGame.CloseVideoEvent += Rewarded;
+    private void OnDisable() => YandexGame.CloseVideoEvent -= Rewarded;
+
+    public void Rewarded(int id)
+    {
+        if (id == 0)
+        {
+            BonusForAd();
+        }
+    }
+
+    public void BonusForAd()
+    {
+        playerCash += 300;
+        UpdateCashAmmount();
+        PlayerPrefs.SetFloat("Cash", playerCash);
+        PlayerPrefs.Save();
+    }
+
     private void Update()
     {
         ToggleMusic();
@@ -243,49 +263,71 @@ public class MenuManager : MonoBehaviour
 
     public void BuyHeartBoost()
     {
-        if (playerCash >= HeartPrice)
+        if (playerCash < HeartPrice || heartIndex >= heartBoostPanels.Length) return;
+
+        boostCount++;
+        PlayerPrefs.SetInt("BoostCount", boostCount);
+
+        BoostShopManager.PurchaseHeartBoost(heartIndex);
+
+        heartIndex = Mathf.Clamp(++heartIndex, 0, heartBoostPanels.Length);
+        PlayerPrefs.SetInt("HeartCount", heartIndex);
+
+        UpdateBoostCount();
+        UpdateHeartBoostPanels();
+
+        TakeCash(HeartPrice);
+        HeartPrice *= 2;
+
+        UpdateBoosts();
+        PlayPurchaseSound();
+    }
+
+    private void UpdateHeartBoostPanels()
+    {
+        Color32 activeColor = new Color32(137, 221, 187, 255);
+        for (int i = 0; i < heartIndex; i++)
         {
-            boostCount++;
-            PlayerPrefs.SetInt("BoostCount", boostCount);
-            BoostShopManager.PurchaseHeartBoost(heartIndex);
-            heartIndex++;
-            heartIndex = Mathf.Clamp(heartIndex, 0, heartBoostPanels.Length);
-            PlayerPrefs.SetInt("HeartCount", heartIndex);
-            UpdateBoostCount();
-            for (int i = 0; i < heartIndex; i++)
-            {
-                heartBoostPanels[i].color = new Color32(137, 221, 187, 255);
-            }
-            TakeCash(HeartPrice);
-            HeartPrice *= 2;
-            UpdateBoosts();
-            audioSource.clip = clips[0];
-            audioSource.Play();
+            heartBoostPanels[i].color = activeColor;
         }
     }
 
+    private void PlayPurchaseSound()
+    {
+        audioSource.clip = clips[0];
+        audioSource.Play();
+    }
+
+
     public void BuyGrenadeBoost()
     {
-        if (playerCash >= GrenadePrice)
-        {
-            boostCount++;
-            PlayerPrefs.SetInt("BoostCount", boostCount);
-            BoostShopManager.PurchaseGrenadeBoost(grenadeIndex);
-            grenadeIndex++;
-            grenadeIndex = Mathf.Clamp(grenadeIndex, 0, grenadeBoostPanels.Length);
-            PlayerPrefs.SetInt("GrenadeCount", grenadeIndex);
-            UpdateBoostCount();
-            for (int i = 0; i < grenadeIndex; i++)
-            {
-                grenadeBoostPanels[i].color = new Color32(137, 221, 187, 255);
-            }
-            TakeCash(GrenadePrice);
-            GrenadePrice *= 2;
-            UpdateBoosts();
-            audioSource.clip = clips[0];
-            audioSource.Play();
-        }
+        if (playerCash < GrenadePrice || grenadeIndex >= grenadeBoostPanels.Length) return;
 
+        boostCount++;
+        PlayerPrefs.SetInt("BoostCount", boostCount);
+
+        BoostShopManager.PurchaseGrenadeBoost(grenadeIndex);
+
+        grenadeIndex = Mathf.Clamp(++grenadeIndex, 0, grenadeBoostPanels.Length);
+        PlayerPrefs.SetInt("GrenadeCount", grenadeIndex);
+
+        UpdateBoostCount();
+        UpdateGrenadeBoostPanels();
+
+        TakeCash(GrenadePrice);
+        GrenadePrice *= 2;
+
+        UpdateBoosts();
+        PlayPurchaseSound();
+    }
+
+    private void UpdateGrenadeBoostPanels()
+    {
+        Color32 activeColor = new Color32(137, 221, 187, 255);
+        for (int i = 0; i < grenadeIndex; i++)
+        {
+            grenadeBoostPanels[i].color = activeColor;
+        }
     }
 
 
@@ -300,26 +342,33 @@ public class MenuManager : MonoBehaviour
 
     public void BuyCashBoost()
     {
-        if (playerCash >= CashPrice)
-        {
-            boostCount++;
-            PlayerPrefs.SetInt("BoostCount", boostCount);
-            BoostShopManager.PurchaseCashBoost(cashIndex);
-            cashIndex++;
-            cashIndex = Mathf.Clamp(cashIndex, 0, cashBoostPanels.Length);
-            PlayerPrefs.SetInt("CashCount", cashIndex);
-            UpdateBoostCount();
-            for (int i = 0; i < cashIndex; i++)
-            {
-                cashBoostPanels[i].color = new Color32(137, 221, 187, 255);
-            }
-            TakeCash(CashPrice);
-            CashPrice *= 2;
-            UpdateBoosts();
-            audioSource.clip = clips[0];
-            audioSource.Play();
-        }
+        if (playerCash < CashPrice || cashIndex >= cashBoostPanels.Length) return;
 
+        boostCount++;
+        PlayerPrefs.SetInt("BoostCount", boostCount);
+
+        BoostShopManager.PurchaseCashBoost(cashIndex);
+
+        cashIndex = Mathf.Clamp(++cashIndex, 0, cashBoostPanels.Length);
+        PlayerPrefs.SetInt("CashCount", cashIndex);
+
+        UpdateBoostCount();
+        UpdateCashBoostPanels();
+
+        TakeCash(CashPrice);
+        CashPrice *= 2;
+
+        UpdateBoosts();
+        PlayPurchaseSound();
+    }
+
+    private void UpdateCashBoostPanels()
+    {
+        Color32 activeColor = new Color32(137, 221, 187, 255);
+        for (int i = 0; i < cashIndex; i++)
+        {
+            cashBoostPanels[i].color = activeColor;
+        }
     }
 
 
