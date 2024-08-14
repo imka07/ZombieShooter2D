@@ -10,12 +10,13 @@ using TMPro;
 using System;
 using static Cinemachine.DocumentationSortingAttribute;
 using UnityEngine.Rendering;
-using YG;
+//using YG;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager instance;
     [SerializeField] private Button[] levelButtons;
+    //public YandexGame sdk;
 
     [Header("Player Cash")]
     private float playerCash;
@@ -50,7 +51,6 @@ public class MenuManager : MonoBehaviour
     public GameObject buyButton;
     public Image gunImage;
     [SerializeField] private Sprite[] guns;
-   
     
 
     [Header("Audio")]
@@ -66,6 +66,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         //PlayerPrefs.DeleteAll();
+
         instance = this;
         WeaponShopManager.PurchaseWeapon(0);
         StartData();
@@ -163,8 +164,8 @@ public class MenuManager : MonoBehaviour
 
     }
 
-    private void OnEnable() => YandexGame.CloseVideoEvent += Rewarded;
-    private void OnDisable() => YandexGame.CloseVideoEvent -= Rewarded;
+    //private void OnEnable() => YandexGame.CloseVideoEvent += Rewarded;
+    //private void OnDisable() => YandexGame.CloseVideoEvent -= Rewarded;
 
     public void Rewarded(int id)
     {

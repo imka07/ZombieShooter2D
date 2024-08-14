@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MilkShake;
 
 public class GunController : MonoBehaviour
 {

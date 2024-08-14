@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
-using YG;
+//using YG;
 
 public class gameManager : MonoBehaviour
 {               
@@ -42,13 +42,13 @@ public class gameManager : MonoBehaviour
     private void OnEnable()
     {
         waveSpawner.OnEnemyRemoved.AddListener(OnEnemyDestroyed);
-        YandexGame.CloseVideoEvent += Rewarded;
+        //YandexGame.CloseVideoEvent += Rewarded;
     }
 
     private void OnDisable()
     {
         waveSpawner.OnEnemyRemoved.RemoveListener(OnEnemyDestroyed);
-        YandexGame.CloseVideoEvent -= Rewarded;
+        //YandexGame.CloseVideoEvent -= Rewarded;
     }
 
     private void Awake()
